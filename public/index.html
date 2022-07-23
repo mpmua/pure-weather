@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <title>Weather App</title>
+       
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+      <link rel="apple-touch-icon" href="img/apple-icon-192px.png">
+      <meta name="theme-color" content="#db4938"/>
+      <link rel="dns-prefetch" href="https://api.openweathermap.org">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/weather-icons.min-slim.css">
+      <link rel="manifest" href="manifest.json" />
+
+    </head>
+    <body>
+
+  <section id="page-wrap">
+    <section id="top-nav">
+      
+      <div class="city"></div>
+
+      <div class="menu-icon">
+        <div class="menu-icon-line"></div>
+        <div class="menu-icon-line"></div>
+        <div class="menu-icon-line"></div>    
+      </div>
+   </section>
+
+    <section class="side-menu-hidden">
+      <div class="side-menu-items-wrap">
+       <ul class="location-ul">
+        <p class="side-menu-location-text">Locations</p></ul>
+       <ul class="settings-ul">
+        <li class="settings-li">
+          <a href="settings.html"><span class="cog-icon"><i class="fas fa-cog"></i></span>Settings</a>
+          
+        </li>
+       </ul>
+     
+      </div>
+    </section>
+
+    <section id="city-and-temp">
+      
+      <div class="current-forecast"></div>
+      <div class="triangle">
+        
+      <i class="fas fa-chevron-down"></i>
+      
+      </div>
+      
+      <div class="temp"></div>
+      <div class="min-max-current-day-temp"></div>
+      
+    </section>
+    
+       <div class="more-weather-info">
+         
+          <div class="feels-like-box">
+            
+            <i class="fas fa-thermometer-quarter"></i>
+            <p>Feels like</p>
+            <p class="feels-like-stat"></p>
+            </div>
+
+          <div class="wind-box">
+            <i class="fas fa-wind"></i>
+            <p>Wind</p>
+            <p class="wind-stat"></p>
+            </div>
+
+          <div class="humidity-box">
+            <i class="fas fa-tint"></i>
+            <p>Humidity</p>
+            <p class="humidity-stat"></p>
+          </div>
+          <div class="pressure-box">
+            <i class="fas fa-cloud-rain"></i>
+            <p>Pressure</p>
+            <p class="pressure-stat"></p>
+
+            </div>
+
+          <div class="uv-box">
+            <i class="fas fa-sun"></i>
+            <p>UV Index</p>
+            <p class="uv-stat"></p>
+          </div>
+
+          <div class="dew-point">
+            <i class="fas fa-temperature-high"></i>
+            <p>Dew Point</p>
+            <p class="dew-point-stat"></p>
+          </div>
+
+        </div>
+        
+        <div class="weather-alert">
+
+        </div>
+    
+      <section id="hourly-temp-section">
+      
+    </section>
+
+      <div class="daily-temp"></div>
+
+  </section>
+
+<script src="https://kit.fontawesome.com/0505a68c8d.js" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+    
+    </body>
+      
+</html>
