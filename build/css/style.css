@@ -26,7 +26,8 @@ body {
 
  color: #fff;
  font-family: 'Roboto-Light', sans-serif;
- height: 100vh;
+ /* height: 100vh; */
+ min-height: 100vh;
 
 
 }
@@ -561,7 +562,7 @@ border-bottom: 0.5px solid #ffffff57;
   
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 0.6rem 0 0.6rem 1rem;
+  margin: 0.6rem 1rem 0.6rem 1rem;
   
 }
 
@@ -590,10 +591,10 @@ border-bottom: 0.5px solid #ffffff57;
 
 .day-max-min-temp {
 
-  margin-left: 1rem;
-  width: 100%;
+  /* margin-left: 1rem; */
+  /* width: 100%; */
   display: flex;
-  justify-content: start;
+  justify-content: end;
 
 }
 
@@ -659,6 +660,20 @@ border-bottom: 0.5px solid #ffffff57;
 
 @media (min-width: 600px) {
 
+  body {
+
+    height: 100vh; /* This property has been placed here as on tablets the main page 
+                      becomes unscrollable otherwise */
+   
+   
+   }
+
+   #page-wrap {
+
+    height: 100vh; /* Put here for the same reason as above, the scrollbars now show unlike on mobile */
+
+   }  
+
   .menu-icon {
   
     padding-right: 3rem;
@@ -709,6 +724,12 @@ border-bottom: 0.5px solid #ffffff57;
 
     font-size: 25rem;
     padding: 5rem 0;
+
+  }
+
+  .triangle {
+
+    font-size: 3.5rem;
 
   }
 
