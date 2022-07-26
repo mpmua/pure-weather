@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.weatherapp.pure',
   appName: 'Pure Weather',
   webDir: 'build',
   linuxAndroidStudioPath: "/home/fm/android-studio/bin/studio.sh",

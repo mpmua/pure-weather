@@ -200,7 +200,7 @@ function fetchCityData() {
           weatherAlertDiv.style.display = "none";
           
         }
-        
+        console.log(data.current.weather[0].icon)
         let weatherIconCurrent = data.current.weather[0].icon;  
         let dataCurrentTemp = data.current.temp;
         let dataDailyTempMaxMain = data.daily[0].temp.max;
