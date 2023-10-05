@@ -306,7 +306,7 @@ addLocationSubmitBtn.addEventListener("click", () => {
   }
 });
 
-// ATTACHES EVENT LISTENER TO CURRENT LOCATION BUTTON
+// ATTACHES EVENT LISTENER TO CURRENT LOCATION  BUTTON
 let lastLocationArray = [];
 currentLocationButton.addEventListener("click", () => {
   // lastLocationArray = [];
