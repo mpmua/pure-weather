@@ -312,65 +312,79 @@ currentLocationButton.addEventListener("click", () => {
   // lastLocationArray = [];
   console.log("BUTTON CLICKED");
 
+  const options = {
+    enableHighAccuracy: false,
+    timeout: 3000,
+    maximumAge: 0,
+  };
+
+  function positionSuccess(position) {
+    console.log(position.coords.latitude, position.coords.longitude);
+
+    longitude = position.coords.longitude;
+    latitude = position.coords.latitude;
+
+    let cityName = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiKey}`;
+
+    currentLocationButtonTxt.innerHTML = "Current Location";
+
+    fetch(cityName)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        currentCity = data[0].name;
+        currentLong = longitude;
+        currentLat = latitude;
+        selectedCity = currentCity;
+        lastLocationArray.push({
+          currentLong: currentLong,
+          currentLat: currentLat,
+          selectedCity: selectedCity,
+        });
+        localStorage.setItem(
+          "lastLocationArray",
+          JSON.stringify(lastLocationArray)
+        );
+        savedLocations.push({
+          longitude: longitude,
+          latitude: latitude,
+          city: currentCity,
+        });
+        localStorage.setItem("savedLocations", JSON.stringify(savedLocations));
+        checkForLocalData();
+      });
+
+    userLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  }
+
+  function positionError(error) {
+    console.log(error);
+    if (error.code === 1) {
+      alert(
+        "Unable to obtain location permission, please ensure location permission is turned on within your system settings"
+      );
+      currentLocationButtonTxt.innerHTML = "Current Location";
+    } else if (error.code === 2) {
+      alert("Unable to obtain position, please try adding location manually");
+      currentLocationButtonTxt.innerHTML = "Current Location";
+    } else if (error.code === 3) {
+      alert("Request timed out");
+      currentLocationButtonTxt.innerHTML = "Current Location";
+    }
+  }
+
   if (navigator.geolocation) {
     console.log("navigator.geolocation IS TRUE");
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
-
-      longitude = position.coords.longitude;
-      latitude = position.coords.latitude;
-
-      let cityName = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiKey}`;
-
-      currentLocationButtonTxt.innerHTML = "Current Location";
-
-      fetch(cityName)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          currentCity = data[0].name;
-          currentLong = longitude;
-          currentLat = latitude;
-          selectedCity = currentCity;
-          lastLocationArray.push({
-            currentLong: currentLong,
-            currentLat: currentLat,
-            selectedCity: selectedCity,
-          });
-          localStorage.setItem(
-            "lastLocationArray",
-            JSON.stringify(lastLocationArray)
-          );
-          savedLocations.push({
-            longitude: longitude,
-            latitude: latitude,
-            city: currentCity,
-          });
-          localStorage.setItem(
-            "savedLocations",
-            JSON.stringify(savedLocations)
-          );
-          checkForLocalData();
-        });
-
-      userLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
-    });
+    navigator.geolocation.getCurrentPosition(
+      positionSuccess,
+      positionError,
+      options
+    );
   } else {
     console.log("Geolocation is not supported by this browser.");
   }
 });
-
-// REMOVE THIS AFTER LOADING ICON IS POSITIONED PROPERLY
-// currentLocationButton.addEventListener("click", () => {
-
-//   locationCheck();
-
-// });
-
-// function onDeviceReady() {
-//     // Now safe to use device APIs
-// }
 
 const currentLocationButtonTxt = document.querySelector(
   ".current-location-btn-text"
@@ -382,8 +396,6 @@ var latitude;
 var userLocation;
 var currentCity;
 var savedLocations = [];
-
-// localStorage.removeItem("savedLocations")
 
 function checkForLocalData() {
   cityListWrap.innerHTML = "";
