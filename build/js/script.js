@@ -19,14 +19,14 @@ const alertEventName = document.querySelector(".alert-event-name");
 const alertDescription = document.querySelector(".alert-description");
 const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
 
-// if ("serviceWorker" in navigator) {
-//   window.addEventListener("load", function() {
-//     navigator.serviceWorker
-//       .register("/serviceworker.js")
-//       .then(res => console.log("service worker registered"))
-//       .catch(err => console.log("service worker not registered", err))
-//   })
-// }
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("/serviceworker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
 
 colorObjects = {
      
@@ -200,7 +200,7 @@ function fetchCityData() {
           weatherAlertDiv.style.display = "none";
           
         }
-        console.log(data.current.weather[0].icon)
+        
         let weatherIconCurrent = data.current.weather[0].icon;  
         let dataCurrentTemp = data.current.temp;
         let dataDailyTempMaxMain = data.daily[0].temp.max;
