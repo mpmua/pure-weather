@@ -371,26 +371,23 @@ function fetchCityData() {
           dailyPop = "";
         }
         let weatherIconDaily = data.daily[d].weather[0].icon;
-        {
-          /* <td style="font-size: 0.7rem;">${dailyPop}</td> */
-        }
+
         dailyTempSection.innerHTML += `
           
             <tr>
-              <td>${singleDayName}</td>
-              <td colspan="2" style=""><i style="font-size: 1.5rem" class="wi ${
+              <td class="daily-temp-day-text">${singleDayName}</td>
+              <td class="daily-weather-icon" colspan="1"><i class="wi ${
                 dict[weatherIconDaily]
-              }"></i><span style="font-size: 0.6rem; padding-left: 0.5rem; position: relative;
-              top: -6px;">${dailyPop}</span</td>
-              <td style="position: relative; text-align:end;">${Math.round(
+              }"></i></td>
+              <td class="daily-pop-text">${dailyPop}</span</td>
+              <td class="daily-max-text">${Math.round(
                 dataDailyTempMax
-              )}<span class="daily-circle-icon" style="position:absolute; top: 0px; padding-left: 0.1rem;">&#3664;</span></td>
-              <td style="position: relative; text-align:center; opacity: 0.6;">${Math.round(
+              )}<span class="daily-circle-icon">&#3664;</span></td>
+              <td class="daily-min-text">${Math.round(
                 dataDailyTempMin
-              )}<span class="daily-circle-icon" style="position:absolute; top: 0px; opacity: 0.5; padding-left: 0.1rem;">&#3664;</span></td>
+              )}<span class="daily-circle-icon" style="opacity: 0.6rem">&#3664;</span></td>
             </tr>
-       
-
+      
           `;
       }
     })
@@ -414,10 +411,6 @@ if (localStorage.getItem("savedLocations") !== null) {
   locallyStoredCities = JSON.parse(localStorage.getItem("savedLocations"));
 
   var lastLocationArray = [];
-
-  if (locallyStoredCities.length == 1) {
-    // document.getElementById(0).style.background = "rgba(0, 0, 0, 0.5)";
-  }
 
   for (c = 0; c < locallyStoredCities.length; c++) {
     let sideMenuCityLi = document.createElement("div");
@@ -443,7 +436,6 @@ if (localStorage.getItem("savedLocations") !== null) {
       }
 
       localStorage.setItem("cityLiColor", "rgba(0, 0, 0, 0.5)");
-      const clickedItem = e.target;
 
       currentLong = locallyStoredCities[clicked].longitude;
       currentLat = locallyStoredCities[clicked].latitude;
