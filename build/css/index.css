@@ -1,20 +1,6 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  user-select: none;
-}
-
 @font-face {
   font-family: Roboto-Light;
   src: url(/font/Roboto-Light.ttf);
-  /* font-display: swap; */
-}
-
-body {
-  color: #fff;
-  font-family: "Roboto-Light", sans-serif;
-  height: 100vh;
 }
 
 #page-wrap {
@@ -393,8 +379,47 @@ table {
   border-spacing: 0.7rem 1.3rem;
 }
 
+.daily-temp-day-text,
+.daily-weather-icon,
+.daily-max-text,
+.daily-min-text {
+  font-size: 1rem;
+}
+
+.daily-temp-day-text {
+  width: 45%;
+}
+
+.daily-weather-icon {
+  width: 5%;
+}
+
+.daily-weather-icon i {
+  font-size: 1.5rem;
+}
+
+.daily-pop-text {
+  font-size: 0.7rem;
+  position: relative;
+  top: -6px;
+}
+
+.daily-max-text {
+  position: relative;
+  text-align: end;
+}
+
+.daily-min-text {
+  position: relative;
+  text-align: center;
+  opacity: 0.6;
+}
+
 .daily-circle-icon {
   font-size: 0.6rem;
+  position: absolute;
+  top: 0px;
+  padding-left: 0.1rem;
 }
 
 /* MEDIA QUERIES */
@@ -473,21 +498,60 @@ table {
     font-size: 1rem;
   }
 
+  .single-hour-circle-icon {
+    position: relative;
+    font-size: 1rem;
+    top: -2px;
+  }
+
   .single-hour-icon .wi {
     font-size: 2.5rem;
     margin-top: 0.8rem;
   }
 
-  .daily-temp {
-    margin: 3.5rem auto;
+  table {
+    border-spacing: 0.7rem 2rem;
+  }
+
+  .daily-temp-day-text,
+  .daily-weather-icon,
+  .daily-max-text,
+  .daily-min-text {
+    font-size: 1.5rem;
   }
 
   .daily-pop-text {
-    font-size: 1rem;
+    top: 1px;
+    font-size: 0.8rem;
     margin-left: -4rem;
   }
 
   .day-icon .wi {
     font-size: 2rem;
+  }
+
+  .daily-circle-icon {
+    font-size: 1rem;
+    top: -6px;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: white rgba(255, 166, 0, 0);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff;
   }
 }

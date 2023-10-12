@@ -9,7 +9,7 @@ const config: CapacitorConfig = {
   
   plugins: {
     SplashScreen: {
-      launchShowDuration: 3000,
+      launchShowDuration: 1000,
       launchAutoHide: true,
       backgroundColor: "#6A1B9A",
       androidSplashResourceName: "splash",
@@ -26,8 +26,5 @@ const config: CapacitorConfig = {
   },
   
 };
-
-
-
 
 export default config;

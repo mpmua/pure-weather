@@ -23,9 +23,6 @@ const msBtn = document.querySelector(".ms-btn");
 
 // const owmCityJsonFile = require("/city.list.json")
 
-if (localStorage.getItem("savedLocations") == null) {
-}
-
 if (localStorage.getItem("unit") == null) {
   localStorage.setItem("unit", "imperial");
 }
@@ -53,12 +50,6 @@ if (localStorage.getItem("savedLocations") == null) {
 
 document.body.style.backgroundImage = bodyBackgroundColor;
 
-// DUPLICATE VARIABLES FROM OTHER JS FILE
-// const tempDiv = document.querySelector(".temp");
-
-// OPENWEATHERMAP API KEY
-//let apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
-
 var apiKey;
 if (localStorage.getItem("apiKey", apiKey) !== null) {
   apiKey = localStorage.getItem("apiKey", apiKey);
@@ -68,8 +59,6 @@ if (localStorage.getItem("apiKey", apiKey) !== null) {
   apiInputValue.value = apiKey;
   localStorage.setItem("apiKey", apiKey);
 }
-
-//http://api.openweathermap.org/data/2.5/forecast?id=5128581&appid=6b2ce66a0708555cf5ca3fe99d0f1274
 
 apiInputValue.addEventListener("input", () => {
   apiKey = apiInputValue.value;
@@ -179,12 +168,6 @@ function filterCities() {
       })
       .join(" ");
 
-    /*   if (cityField.value.length === 0) {
-       
-       filteredOwmCityJsonFile = [];
-
-     }*/
-
     cityMatchList.innerHTML = mappedOwmCityJsonFile;
   } else {
     cityMatchList.style.display = "none";
@@ -253,6 +236,15 @@ cancelBtn.addEventListener("click", () => {
   addLocationPopUpBox.style.display = "none";
 });
 
+function checkForDuplicateCity(city) {
+  for (let i = 0; i < savedLocations.length; i++) {
+    if (savedLocations[i].city == city) {
+      alert("Location already exists");
+      return true;
+    }
+  }
+}
+
 addLocationSubmitBtn.addEventListener("click", () => {
   if (
     cityField.value !== "" &&
@@ -270,6 +262,10 @@ addLocationSubmitBtn.addEventListener("click", () => {
     let userEnteredCity = document
       .getElementById("city-name-value")
       .value.replaceAll('"', "");
+
+    if (checkForDuplicateCity(userEnteredCity)) {
+      return;
+    }
 
     savedLocations.push({
       longitude: userEnteredLongitude,
@@ -306,11 +302,9 @@ addLocationSubmitBtn.addEventListener("click", () => {
   }
 });
 
-// ATTACHES EVENT LISTENER TO CURRENT LOCATION  BUTTON
 let lastLocationArray = [];
 currentLocationButton.addEventListener("click", () => {
   // lastLocationArray = [];
-  console.log("BUTTON CLICKED");
   currentLocationButtonTxt.innerHTML = ` <div class="loader"></div>`;
   currentLocationButton.disabled = true;
 
@@ -321,8 +315,6 @@ currentLocationButton.addEventListener("click", () => {
   };
 
   function positionSuccess(position) {
-    console.log(position.coords.latitude, position.coords.longitude);
-
     longitude = position.coords.longitude;
     latitude = position.coords.latitude;
 
@@ -344,6 +336,11 @@ currentLocationButton.addEventListener("click", () => {
           currentLat: currentLat,
           selectedCity: selectedCity,
         });
+
+        if (checkForDuplicateCity(selectedCity)) {
+          return;
+        }
+
         localStorage.setItem(
           "lastLocationArray",
           JSON.stringify(lastLocationArray)
@@ -365,7 +362,7 @@ currentLocationButton.addEventListener("click", () => {
   function positionError(error) {
     currentLocationButton.disabled = false;
     currentLocationButtonTxt.innerHTML = "Current Location";
-    console.log(error);
+
     if (error.code === 1) {
       alert(
         "Unable to obtain location permission, please ensure location permission is turned on within your system settings"
@@ -378,14 +375,13 @@ currentLocationButton.addEventListener("click", () => {
   }
 
   if (navigator.geolocation) {
-    console.log("navigator.geolocation IS TRUE");
     navigator.geolocation.getCurrentPosition(
       positionSuccess,
       positionError,
       options
     );
   } else {
-    console.log("Geolocation is not supported by this browser.");
+    alert("Geolocation is not supported by this browser.");
   }
 });
 
