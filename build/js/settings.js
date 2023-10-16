@@ -31,7 +31,7 @@ if (localStorage.getItem("temp-unit") == null) {
   localStorage.setItem("temp-unit", "mph");
 }
 
-var owmCityJsonFile;
+let owmCityJsonFile;
 fetch("/current_city_list.json")
   .then((response) => {
     return response.json();
@@ -40,7 +40,7 @@ fetch("/current_city_list.json")
     owmCityJsonFile = data;
   });
 
-var bodyBackgroundColor;
+let bodyBackgroundColor;
 if (localStorage.getItem("savedLocations") == null) {
   bodyBackgroundColor =
     "linear-gradient(135deg, rgb(163, 163, 163) 10%, rgb(93, 104, 136) 100%)";
@@ -132,7 +132,7 @@ msBtn.addEventListener("click", () => {
   localStorage.setItem("temp-unit", "ms");
 });
 
-var cityId;
+let cityId;
 
 const addLocationPopUpBox = document.getElementById("add-location-pop-up");
 const addLocationSubmitBtn = document.querySelector(".add-location-submit-btn");
@@ -184,8 +184,8 @@ const cancelBtn = document.querySelector(".add-location-cancel-btn");
 addLocationButton.addEventListener("click", () => {
   addLocationPopUpBox.style.display = "block";
 
-  var filteredOwmCityJsonFile;
-  var cityFieldSearchLi = document.createElement("li");
+  let filteredOwmCityJsonFile;
+  let cityFieldSearchLi = document.createElement("li");
 
   cityField.addEventListener("input", filterCities);
 
@@ -390,11 +390,11 @@ const currentLocationButtonTxt = document.querySelector(
 );
 
 // GLOBAL VARIABLES
-var longitude;
-var latitude;
-var userLocation;
-var currentCity;
-var savedLocations = [];
+let longitude;
+let latitude;
+let userLocation;
+let currentCity;
+let savedLocations = [];
 
 function checkForLocalData() {
   cityListWrap.innerHTML = "";

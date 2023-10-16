@@ -33,15 +33,14 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-var pStart = { x: 0, y: 0 };
-var pStop = { x: 0, y: 0 };
+let pStart = { x: 0, y: 0 };
+let pStop = { x: 0, y: 0 };
 
 function swipeStart(e) {
   if (typeof e["targetTouches"] !== "undefined") {
-    var touch = e.targetTouches[0];
+    let touch = e.targetTouches[0];
     pStart.x = touch.screenX;
     pStart.y = touch.screenY;
-    console.log(e.targetTouches[0]);
   } else {
     pStart.x = e.screenX;
     pStart.y = e.screenY;
@@ -50,7 +49,7 @@ function swipeStart(e) {
 
 function swipeEnd(e) {
   if (typeof e["changedTouches"] !== "undefined") {
-    var touch = e.changedTouches[0];
+    let touch = e.changedTouches[0];
     pStop.x = touch.screenX;
     pStop.y = touch.screenY;
   } else {
@@ -62,8 +61,8 @@ function swipeEnd(e) {
 }
 
 function swipeCheck() {
-  var changeY = pStart.y - pStop.y;
-  var changeX = pStart.x - pStop.x;
+  let changeY = pStart.y - pStop.y;
+  let changeX = pStart.x - pStop.x;
   if (isPullDown(changeY, changeX)) {
     refreshIconWrapper.classList.add("pull-down-icon-wrapper-visible");
     fetchCityData();
@@ -140,18 +139,18 @@ arrowIcon.addEventListener("click", () => {
 });
 
 // let apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
-var apiKey = localStorage.getItem("apiKey", apiKey);
+let apiKey = localStorage.getItem("apiKey", apiKey);
 
-var currentCityMainPage;
-var currentLong;
-var currentLat;
-var locallyStoredCities;
-var selectedLocation;
-var selectedTempUnit;
-var selectedWindSpeedUnit;
-var selectedCity;
+let currentCityMainPage;
+let currentLong;
+let currentLat;
+let locallyStoredCities;
+let selectedLocation;
+let selectedTempUnit;
+let selectedWindSpeedUnit;
+let selectedCity;
 
-var dict = {
+let dict = {
   "01d": "wi-day-sunny",
   "02d": "wi-day-cloudy",
   "03d": "wi-cloud",
@@ -172,7 +171,7 @@ var dict = {
   "50n": "wi-night-fog",
 };
 
-var colorObjects;
+let colorObjects;
 function fetchCityData() {
   fetch(selectedLocation)
     .then((response) => {
@@ -320,7 +319,7 @@ function fetchCityData() {
       document.querySelector(".dew-point-stat").innerHTML =
         Math.round(dewPoint) + ` ${selectedTempUnit}`;
 
-      var bodyBackgroundColor;
+      let bodyBackgroundColor;
 
       if (data.current.weather[0].main == "Rain") {
         bodyBackgroundColor = colorObjects.rain;
@@ -402,7 +401,7 @@ function fetchCityData() {
           "Friday",
           "Saturday",
         ];
-        var dayName = new Date(data.daily[d].dt * 1000).getDay();
+        let dayName = new Date(data.daily[d].dt * 1000).getDay();
         let singleDayName = days[dayName];
 
         if (d == 0) {
@@ -422,7 +421,7 @@ function fetchCityData() {
         let dailyWeatherDescriptionFinalArray = [];
 
         for (t = 0; t < dailyWeatherDescriptionSplit.length; t++) {
-          var dailyWeatherDescriptionFinal =
+          let dailyWeatherDescriptionFinal =
             dailyWeatherDescriptionSplit[t].charAt(0).toUpperCase() +
             dailyWeatherDescriptionSplit[t].slice(1);
           dailyWeatherDescriptionFinalArray.push(dailyWeatherDescriptionFinal);
@@ -477,7 +476,7 @@ function determineTempUnit() {
 if (localStorage.getItem("savedLocations") !== null) {
   locallyStoredCities = JSON.parse(localStorage.getItem("savedLocations"));
 
-  var lastLocationArray = [];
+  let lastLocationArray = [];
 
   for (c = 0; c < locallyStoredCities.length; c++) {
     let sideMenuCityLi = document.createElement("div");
@@ -494,7 +493,7 @@ if (localStorage.getItem("savedLocations") !== null) {
       }
     }, 500);
 
-    var clicked;
+    let clicked;
     document.getElementById(c).addEventListener("click", (e) => {
       clicked = e.target.id;
 
