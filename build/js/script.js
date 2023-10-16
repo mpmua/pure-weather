@@ -96,7 +96,7 @@ document.addEventListener(
   false
 );
 
-colorObjects = {
+let colorObjects = {
   rain: "linear-gradient(135deg, #486da3 10%, #30739f 100%)",
 
   thunderstorm: "linear-gradient( 135deg, #317d87 10%, #122415 100%)",
@@ -138,8 +138,7 @@ arrowIcon.addEventListener("click", () => {
   }
 });
 
-// let apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
-let apiKey = localStorage.getItem("apiKey", apiKey);
+var apiKey = localStorage.getItem("apiKey", apiKey);
 
 let currentCityMainPage;
 let currentLong;
@@ -171,7 +170,6 @@ let dict = {
   "50n": "wi-night-fog",
 };
 
-let colorObjects;
 function fetchCityData() {
   fetch(selectedLocation)
     .then((response) => {
