@@ -1,5 +1,8 @@
 // - - - - - - -GLOBAL VARIABLES----------
 const pageWrap = document.getElementById("page-wrap");
+const refreshIconWrapper = document.querySelector(
+  ".pull-down-icon-wrapper-hidden"
+);
 const menuIcon = document.querySelector(".menu-icon");
 const sideMenu = document.querySelector(".side-menu-hidden");
 const cityAndTemp = document.getElementById("city-and-temp");
@@ -62,7 +65,6 @@ function swipeCheck() {
   var changeY = pStart.y - pStop.y;
   var changeX = pStart.x - pStop.x;
   if (isPullDown(changeY, changeX)) {
-    //  alert("Swipe Down!");
     refreshIconWrapper.classList.add("pull-down-icon-wrapper-visible");
     fetchCityData();
 
@@ -75,7 +77,7 @@ function swipeCheck() {
 function isPullDown(dY, dX) {
   return (
     dY < 0 &&
-    ((Math.abs(dX) <= 100 && Math.abs(dY) >= 200) ||
+    ((Math.abs(dX) <= 100 && Math.abs(dY) >= 350) ||
       (Math.abs(dX) / Math.abs(dY) <= 0.3 && dY >= 60))
   );
 }

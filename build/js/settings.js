@@ -50,7 +50,7 @@ if (localStorage.getItem("savedLocations") == null) {
 
 document.body.style.backgroundImage = bodyBackgroundColor;
 
-var apiKey;
+let apiKey;
 if (localStorage.getItem("apiKey", apiKey) !== null) {
   apiKey = localStorage.getItem("apiKey", apiKey);
   apiInputValue.value = apiKey;
