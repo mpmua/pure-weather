@@ -401,7 +401,7 @@ table {
 .daily-pop-text {
   font-size: 0.7rem;
   position: relative;
-  top: -6px;
+  /* top: -6px; */
 }
 
 .daily-max-text {
@@ -514,10 +514,13 @@ table {
   }
 
   .daily-temp-day-text,
-  .daily-weather-icon,
   .daily-max-text,
   .daily-min-text {
     font-size: 1.5rem;
+  }
+
+  .daily-weather-icon > i {
+    font-size: 2rem;
   }
 
   .daily-pop-text {
@@ -532,7 +535,7 @@ table {
 
   .daily-circle-icon {
     font-size: 1rem;
-    top: -6px;
+    top: -4px;
   }
 }
 

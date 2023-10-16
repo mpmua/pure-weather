@@ -30,6 +30,71 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+var pStart = { x: 0, y: 0 };
+var pStop = { x: 0, y: 0 };
+
+function swipeStart(e) {
+  if (typeof e["targetTouches"] !== "undefined") {
+    var touch = e.targetTouches[0];
+    pStart.x = touch.screenX;
+    pStart.y = touch.screenY;
+    console.log(e.targetTouches[0]);
+  } else {
+    pStart.x = e.screenX;
+    pStart.y = e.screenY;
+  }
+}
+
+function swipeEnd(e) {
+  if (typeof e["changedTouches"] !== "undefined") {
+    var touch = e.changedTouches[0];
+    pStop.x = touch.screenX;
+    pStop.y = touch.screenY;
+  } else {
+    pStop.x = e.screenX;
+    pStop.y = e.screenY;
+  }
+
+  swipeCheck();
+}
+
+function swipeCheck() {
+  var changeY = pStart.y - pStop.y;
+  var changeX = pStart.x - pStop.x;
+  if (isPullDown(changeY, changeX)) {
+    //  alert("Swipe Down!");
+    refreshIconWrapper.classList.add("pull-down-icon-wrapper-visible");
+    fetchCityData();
+
+    setTimeout(() => {
+      refreshIconWrapper.classList.remove("pull-down-icon-wrapper-visible");
+    }, 2000);
+  }
+}
+
+function isPullDown(dY, dX) {
+  return (
+    dY < 0 &&
+    ((Math.abs(dX) <= 100 && Math.abs(dY) >= 200) ||
+      (Math.abs(dX) / Math.abs(dY) <= 0.3 && dY >= 60))
+  );
+}
+
+document.addEventListener(
+  "touchstart",
+  function (e) {
+    swipeStart(e);
+  },
+  false
+);
+document.addEventListener(
+  "touchend",
+  function (e) {
+    swipeEnd(e);
+  },
+  false
+);
+
 colorObjects = {
   rain: "linear-gradient(135deg, #486da3 10%, #30739f 100%)",
 
@@ -376,7 +441,7 @@ function fetchCityData() {
           
             <tr>
               <td class="daily-temp-day-text">${singleDayName}</td>
-              <td class="daily-weather-icon" colspan="1"><i class="wi ${
+              <td class="daily-weather-icon"  colspan="1"><i class="wi ${
                 dict[weatherIconDaily]
               }"></i></td>
               <td class="daily-pop-text">${dailyPop}</span</td>
