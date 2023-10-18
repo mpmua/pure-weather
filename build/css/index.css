@@ -36,6 +36,10 @@
   overflow: hidden;
 }
 
+.wi {
+  opacity: 0.8;
+}
+
 .menu-icon {
   position: absolute;
   right: 0;
@@ -403,10 +407,7 @@ table {
 
 .daily-weather-icon {
   width: 5%;
-}
-
-.daily-weather-icon i {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .daily-pop-text {

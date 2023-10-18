@@ -440,7 +440,7 @@ function fetchCityData() {
           
             <tr>
               <td class="daily-temp-day-text">${singleDayName}</td>
-              <td class="daily-weather-icon"  colspan="1"><i class="wi ${
+              <td class="daily-weather-icon" colspan="1"><i class="wi  ${
                 dict[weatherIconDaily]
               }"></i></td>
               <td class="daily-pop-text">${dailyPop}</span</td>
@@ -449,7 +449,7 @@ function fetchCityData() {
               )}<span class="daily-circle-icon">&#3664;</span></td>
               <td class="daily-min-text">${Math.round(
                 dataDailyTempMin
-              )}<span class="daily-circle-icon" style="opacity: 0.6rem">&#3664;</span></td>
+              )}<span class="daily-circle-icon" style="opacity: 0.6">&#3664;</span></td>
             </tr>
       
           `;
