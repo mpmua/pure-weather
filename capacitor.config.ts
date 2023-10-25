@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.weatherapp.pure',
   appName: 'Pure Weather',
-  webDir: 'build',
+  webDir: 'www',
   linuxAndroidStudioPath: "/home/fm/android-studio/bin/studio.sh",
   bundledWebRuntime: false 
   
