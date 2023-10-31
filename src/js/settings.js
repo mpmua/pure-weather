@@ -14,14 +14,11 @@ const imperialBtn = document.querySelector(".imperial-btn");
 const apiSuccessOrFailText = document.querySelector(
   ".api-success-or-error-text"
 );
-// const questionPopUp = document.querySelector(".fa-question-circle");
+
 const unitHelpText = document.querySelector(".unit-help-text");
 const kmhBtn = document.querySelector(".kmh-btn");
 const mphBtn = document.querySelector(".mph-btn");
 const msBtn = document.querySelector(".ms-btn");
-// const formErrorText = document.querySelector(".form-error-text");
-
-// const owmCityJsonFile = require("/city.list.json")
 
 if (localStorage.getItem("unit") == null) {
   localStorage.setItem("unit", "imperial");
@@ -99,16 +96,19 @@ if (localStorage.getItem("unit") == "metric") {
   imperialBtn.style.background = "rgba(0, 0, 0, 0.1)";
 }
 
+function optionSelect(selectedBtn, deSelectedBtn, unitType, measurementUnit) {
+  deSelectedBtn.style.background = "";
+  selectedBtn.style.background = "rgba(0, 0, 0, 0.1)";
+  console.log(selectedBtn)
+  localStorage.setItem(unitType, measurementUnit);
+}
+
 metricBtn.addEventListener("click", () => {
-  imperialBtn.style.background = "";
-  metricBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  localStorage.setItem("unit", "metric");
+  optionSelect(metricBtn, imperialBtn, "unit", "metric")
 });
 
 imperialBtn.addEventListener("click", () => {
-  metricBtn.style.background = "";
-  imperialBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  localStorage.setItem("unit", "imperial");
+  optionSelect(imperialBtn, metricBtn, "unit", "imperial")
 });
 
 kmhBtn.addEventListener("click", () => {
@@ -155,10 +155,6 @@ function filterCities() {
 
     let mappedOwmCityJsonFile = filteredOwmCityJsonFile
       .map((value) => {
-        /* if (cityField.value.length > 0) {
-      
-
-    } */
 
         return `<section class="city-list-li">
        <div class="city-name-search">${value.name}</div>
