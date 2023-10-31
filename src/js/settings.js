@@ -96,47 +96,37 @@ if (localStorage.getItem("unit") == "metric") {
   imperialBtn.style.background = "rgba(0, 0, 0, 0.1)";
 }
 
-function optionSelect(selectedBtn, deSelectedBtn, unitType, measurementUnit) {
-  deSelectedBtn.style.background = "";
+function optionSelect(selectedBtn, deSelectedBtn1, deSelectedBtn2, unitType, measurementUnit) {
+  deSelectedBtn1.style.background = "";
+  deSelectedBtn2 != null ? deSelectedBtn2.style.background = "" : null;
   selectedBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  console.log(selectedBtn)
   localStorage.setItem(unitType, measurementUnit);
 }
 
 metricBtn.addEventListener("click", () => {
-  optionSelect(metricBtn, imperialBtn, "unit", "metric")
+  optionSelect(metricBtn, imperialBtn, null, "unit", "metric")
 });
 
 imperialBtn.addEventListener("click", () => {
-  optionSelect(imperialBtn, metricBtn, "unit", "imperial")
+  optionSelect(imperialBtn, metricBtn, null, "unit", "imperial")
 });
 
 kmhBtn.addEventListener("click", () => {
-  mphBtn.style.background = "";
-  msBtn.style.background = "";
-  kmhBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  localStorage.setItem("temp-unit", "kmh");
+  optionSelect(kmhBtn, mphBtn, kmhBtn, "temp-unit", "kmh");
 });
 
 mphBtn.addEventListener("click", () => {
-  kmhBtn.style.background = "";
-  msBtn.style.background = "";
-  mphBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  localStorage.setItem("temp-unit", "mph");
+optionSelect(mphBtn, kmhBtn, msBtn, "temp-unit", "mph");
 });
 
 msBtn.addEventListener("click", () => {
-  kmhBtn.style.background = "";
-  mphBtn.style.background = "";
-  msBtn.style.background = "rgba(0, 0, 0, 0.1)";
-  localStorage.setItem("temp-unit", "ms");
+  optionSelect(msBtn, kmhBtn, mphBtn, "temp-unit", "ms");
 });
 
 let cityId;
 
 const addLocationPopUpBox = document.getElementById("add-location-pop-up");
 const addLocationSubmitBtn = document.querySelector(".add-location-submit-btn");
-
 const cityField = document.getElementById("city-name-value");
 const latitudeField = document.getElementById("latitude-name-value");
 const longitudeField = document.getElementById("longitude-name-value");
