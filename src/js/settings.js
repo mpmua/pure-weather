@@ -69,58 +69,90 @@ apiInputValue.addEventListener("input", () => {
     })
     .then((data) => {
       if (data.cod == "200") {
-        apiInputValue.style.border = "1px solid green";
-        apiSuccessOrFailText.style.visibility = "visible";
-        apiSuccessOrFailText.style.color = "green";
-        apiSuccessOrFailText.innerHTML = "Success";
+        successOrErrorMsg("1px solid green", "Success", "green")
       } else if (data.cod == "401") {
-        apiInputValue.style.border = "1px solid red";
-        apiSuccessOrFailText.style.visibility = "visible";
-        apiSuccessOrFailText.style.color = "red";
-        apiSuccessOrFailText.innerHTML = "Invalid API Key";
+        successOrErrorMsg("1px solid red", "Invalid API Key", "red")
       }
     });
 });
 
-if (localStorage.getItem("temp-unit") == "kmh") {
-  kmhBtn.style.background = "rgba(0, 0, 0, 0.1)";
-} else if (localStorage.getItem("temp-unit") == "mph") {
-  mphBtn.style.background = "rgba(0, 0, 0, 0.1)";
-} else if (localStorage.getItem("temp-unit") == "ms") {
-  msBtn.style.background = "rgba(0, 0, 0, 0.1)";
+function successOrErrorMsg(border, msg, msgColor) {
+        apiSuccessOrFailText.style.visibility = "visible";
+        apiInputValue.style.border = border;
+        apiSuccessOrFailText.innerHTML = msg;
+        apiSuccessOrFailText.style.color = msgColor;
 }
 
-if (localStorage.getItem("unit") == "metric") {
+function checkStoredUnits(unitType, unitsArray) {
+/*  for (let i = 0; i < unitsArray.length; i++) {
+    console.log(unitsArray[i])
+    console.log(unitType)
+    if (localStorage.getItem(unitType) === unitsArray[i]) {
+      unit.style.background = "rgba(0, 0, 0, 0.1)";
+    }
+  }*/
+  unitsArray.forEach(unit => {
+   // console.log(unit)
+    if (localStorage.getItem(unitType) === unit) {
+      let btn = unit + "Btn";
+      btn.replaceAll(',', '')
+    //  console.log(typeof btn)
+    //  console.log(btn)
+  //    btn.style.background = "rgba(0, 0, 0, 0.1)";
+    }
+  })
+}
+
+const tempUnitsArray = ["kmh", "mph", "ms"]
+
+checkStoredUnits("temp-unit", tempUnitsArray);
+
+if (localStorage.getItem("unit") === "metric") {
   metricBtn.style.background = "rgba(0, 0, 0, 0.1)";
-} else if (localStorage.getItem("unit") == "imperial") {
+} else if (localStorage.getItem("unit") === "imperial") {
   imperialBtn.style.background = "rgba(0, 0, 0, 0.1)";
 }
 
-function optionSelect(selectedBtn, deSelectedBtn1, deSelectedBtn2, unitType, measurementUnit) {
+/*function optionSelect(selectedBtn, deSelectedBtn1, deSelectedBtn2, unitType, measurementUnit) {
   deSelectedBtn1.style.background = "";
   deSelectedBtn2 != null ? deSelectedBtn2.style.background = "" : null;
   selectedBtn.style.background = "rgba(0, 0, 0, 0.1)";
   localStorage.setItem(unitType, measurementUnit);
+}*/
+
+const buttons = [metricBtn, imperialBtn]
+
+function optionSelect() {
+  
+  buttons.forEach(button => {
+  
+  button.addEventListener("click", () => {
+  
+  buttons.forEach(btn => {
+    btn.style.background = "";
+  })
+    button.style.background = "rgba(0, 0, 0, 0.1)";
+    let measurementUnit; 
+    button.className === "metric-btn" ? measurementUnit = "metric" : measurementUnit = "imperial";
+    localStorage.setItem("unit", measurementUnit);
+  })
+  
+})
 }
 
-metricBtn.addEventListener("click", () => {
-  optionSelect(metricBtn, imperialBtn, null, "unit", "metric")
-});
-
-imperialBtn.addEventListener("click", () => {
-  optionSelect(imperialBtn, metricBtn, null, "unit", "imperial")
-});
+optionSelect()
 
 kmhBtn.addEventListener("click", () => {
-  optionSelect(kmhBtn, mphBtn, kmhBtn, "temp-unit", "kmh");
+  //optionSelect(kmhBtn);
+ // optionSelect(kmhBtn, mphBtn, kmhBtn, "temp-unit", "kmh");
 });
 
 mphBtn.addEventListener("click", () => {
-optionSelect(mphBtn, kmhBtn, msBtn, "temp-unit", "mph");
+//optionSelect(mphBtn, kmhBtn, msBtn, "temp-unit", "mph");
 });
 
 msBtn.addEventListener("click", () => {
-  optionSelect(msBtn, kmhBtn, mphBtn, "temp-unit", "ms");
+//  optionSelect(msBtn, kmhBtn, mphBtn, "temp-unit", "ms");
 });
 
 let cityId;
