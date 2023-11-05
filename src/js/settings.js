@@ -1,36 +1,34 @@
 window.onload = function () {
-    const settingsPageWrap = document.getElementById("settings-page-wrap");
     const cityListWrap = document.getElementById("city-list-wrap");
-    const locationButtonswrapper = document.getElementById(
-        "location-buttons-wrap"
-    );
     const currentLocationButton = document.querySelector(
         ".current-location-btn"
     );
     const addLocationButton = document.querySelector(".add-location-btn");
     const cityMatchList = document.querySelector(".city-match-list");
     const apiInputValue = document.querySelector(".api-input");
-    const testApiButton = document.querySelector(".test-api-btn");
-    const hourlyTemptSect = document.getElementById("hourly-temp-section");
-    const togglesSection = document.getElementById("toggles-wrap");
-    const standardBtn = document.querySelector(".standard-btn");
-    const metricBtn = document.querySelector(".metric-btn");
-    const imperialBtn = document.querySelector(".imperial-btn");
     const apiSuccessOrFailText = document.querySelector(
         ".api-success-or-error-text"
     );
+    const addLocationPopUpBox = document.getElementById("add-location-pop-up");
+    const addLocationSubmitBtn = document.querySelector(
+        ".add-location-submit-btn"
+    );
+    const cityField = document.getElementById("city-name-value");
+    const latitudeField = document.getElementById("latitude-name-value");
+    const longitudeField = document.getElementById("longitude-name-value");
+    const locationManualEntry = document.querySelector(
+        ".location-manual-entry"
+    );
 
-    const unitHelpText = document.querySelector(".unit-help-text");
-    const kmhBtn = document.querySelector(".kmh-btn");
-    const mphBtn = document.querySelector(".mph-btn");
-    const msBtn = document.querySelector(".ms-btn");
+    const searchManualBtn = document.querySelector(".add-location-add-btn");
+    const cancelBtn = document.querySelector(".add-location-cancel-btn");
 
     if (localStorage.getItem("temp-unit") == null) {
-        localStorage.setItem("temp-unit", "imperial");
+        localStorage.setItem("temp-unit", "imperial-btn");
     }
 
-    if (localStorage.getItem("measurement-unit") == null) {
-        localStorage.setItem("measurement-unit", "mph");
+    if (localStorage.getItem("speed-unit") == null) {
+        localStorage.setItem("speed-unit", "mph-btn");
     }
 
     let owmCityJsonFile;
@@ -43,10 +41,11 @@ window.onload = function () {
         });
 
     let bodyBackgroundColor;
-    if (localStorage.getItem("savedLocations") == null) {
+    if (localStorage.getItem("bgcolor") == null) {
         bodyBackgroundColor =
             "linear-gradient(135deg, rgb(163, 163, 163) 10%, rgb(93, 104, 136) 100%)";
-    } else if (localStorage.getItem("savedLocations") !== null) {
+        localStorage.setItem("bgcolor", bodyBackgroundColor);
+    } else if (localStorage.getItem("bgcolor") !== null) {
         bodyBackgroundColor = localStorage.getItem(
             "bgcolor",
             bodyBackgroundColor
@@ -63,6 +62,13 @@ window.onload = function () {
         apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
         apiInputValue.value = apiKey;
         localStorage.setItem("apiKey", apiKey);
+    }
+
+    function successOrErrorMsg(border, msg, msgColor) {
+        apiSuccessOrFailText.style.visibility = "visible";
+        apiInputValue.style.border = border;
+        apiSuccessOrFailText.innerHTML = msg;
+        apiSuccessOrFailText.style.color = msgColor;
     }
 
     apiInputValue.addEventListener("input", () => {
@@ -88,29 +94,18 @@ window.onload = function () {
             });
     });
 
-    function successOrErrorMsg(border, msg, msgColor) {
-        apiSuccessOrFailText.style.visibility = "visible";
-        apiInputValue.style.border = border;
-        apiSuccessOrFailText.innerHTML = msg;
-        apiSuccessOrFailText.style.color = msgColor;
-    }
-
     const speedBtnsArray = document.querySelectorAll("#speed-btn");
     const tempUnitsArray = document.querySelectorAll("#temp-btn");
 
-    console.log(tempUnitsArray);
-
     function setSpeedAndTempBtns(array, storedValue) {
         array.forEach(unit => {
-            console.log("stored unit is: ");
-            console.log(localStorage.getItem(storedValue));
             localStorage.getItem(storedValue) == unit.className
                 ? (unit.style.background = "rgba(0, 0, 0, 0.1)")
                 : null;
         });
     }
 
-    setSpeedAndTempBtns(speedBtnsArray, "measurement-unit");
+    setSpeedAndTempBtns(speedBtnsArray, "speed-unit");
     setSpeedAndTempBtns(tempUnitsArray, "temp-unit");
 
     function addMeasurementAndTempUnitEventListeners(arr, unitType) {
@@ -127,16 +122,6 @@ window.onload = function () {
 
     addMeasurementAndTempUnitEventListeners(speedBtnsArray, "speed-unit");
     addMeasurementAndTempUnitEventListeners(tempUnitsArray, "temp-unit");
-
-    let cityId;
-
-    const addLocationPopUpBox = document.getElementById("add-location-pop-up");
-    const addLocationSubmitBtn = document.querySelector(
-        ".add-location-submit-btn"
-    );
-    const cityField = document.getElementById("city-name-value");
-    const latitudeField = document.getElementById("latitude-name-value");
-    const longitudeField = document.getElementById("longitude-name-value");
 
     function filterCities() {
         searchManualBtn.style.visibility = "hidden";
@@ -168,15 +153,8 @@ window.onload = function () {
         }
     }
 
-    const locationManualEntry = document.querySelector(
-        ".location-manual-entry"
-    );
-    locationManualEntry.style.display = "none";
-    const searchManualBtn = document.querySelector(".add-location-add-btn");
-    const cancelBtn = document.querySelector(".add-location-cancel-btn");
-
     addLocationButton.addEventListener("click", () => {
-        addLocationPopUpBox.style.display = "block";
+            addLocationPopUpBox.style.display = "block";
 
         let filteredOwmCityJsonFile;
         let cityFieldSearchLi = document.createElement("li");
@@ -206,28 +184,29 @@ window.onload = function () {
         });
     });
 
+    function clearManualSearchTextFields() {
+        cityField.value = "";
+        latitudeField.value = "";
+        longitudeField.value = "";
+    }
+
+    function searchManualBtnFunc(display, innerHTML) {
+        cityField.removeEventListener("input", filterCities);
+        locationManualEntry.style.display = display;
+        searchManualBtn.innerHTML = innerHTML;
+        clearManualSearchTextFields();
+    }
+
     searchManualBtn.addEventListener("click", () => {
         if (locationManualEntry.style.display == "none") {
-            cityField.removeEventListener("input", filterCities);
-            locationManualEntry.style.display = "block";
-            searchManualBtn.innerHTML = "AUTO";
-            cityField.value = "";
-            latitudeField.value = "";
-            longitudeField.value = "";
+            searchManualBtnFunc("block", "AUTO");
         } else if (locationManualEntry.style.display == "block") {
-            cityField.addEventListener("input", filterCities);
-            locationManualEntry.style.display = "none";
-            searchManualBtn.innerHTML = "MANUAL";
-            cityField.value = "";
-            latitudeField.value = "";
-            longitudeField.value = "";
+            searchManualBtnFunc("none", "MANUAL");
         }
     });
 
     cancelBtn.addEventListener("click", () => {
-        cityField.value = "";
-        latitudeField.value = "";
-        longitudeField.value = "";
+        clearManualSearchTextFields();
         addLocationPopUpBox.style.display = "none";
     });
 
@@ -246,8 +225,6 @@ window.onload = function () {
             latitudeField.value !== "" &&
             longitudeField.value !== ""
         ) {
-            // document.querySelector(".form-error-text").style.visibility = "hidden";
-
             let userEnteredLatitude = document
                 .getElementById("latitude-name-value")
                 .value.replaceAll('"', "");
@@ -287,22 +264,13 @@ window.onload = function () {
             );
 
             addLocationPopUpBox.style.display = "none";
-
             checkForLocalData();
-
-            cityField.value = "";
-            latitudeField.value = "";
-            longitudeField.value = "";
-
-            //  addLocationPopUpBox.style.display = "block";
-        } else {
-            // document.querySelector(".form-error-text").style.visibility = "visible";
+            clearManualSearchTextFields();
         }
     });
 
     let lastLocationArray = [];
     currentLocationButton.addEventListener("click", () => {
-        // lastLocationArray = [];
         currentLocationButtonTxt.innerHTML = ` <div class="loader"></div>`;
         currentLocationButton.disabled = true;
 
@@ -392,7 +360,6 @@ window.onload = function () {
         ".current-location-btn-text"
     );
 
-    // GLOBAL VARIABLES
     let longitude;
     let latitude;
     let userLocation;

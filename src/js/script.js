@@ -116,13 +116,21 @@ let colorObjects = {
     clouds: "linear-gradient(135deg, rgb(163, 163, 163) 10%, rgb(93, 104, 136) 100%)"
 };
 
+function rotateArrow(rotate, transform, classToRemove, classToAdd) {
+    arrowIcon.style.transform = rotate;
+    arrowIcon.style.transition = transform;
+    moreWeatherInfoWrap.classList.remove(classToRemove);
+    moreWeatherInfoWrap.classList.add(classToAdd);
+}
+
 arrowIcon.addEventListener("click", () => {
     if (moreWeatherInfoWrap.classList == "more-weather-info") {
-        moreWeatherInfoWrap.classList.remove("more-weather-info");
-        moreWeatherInfoWrap.classList.add("more-weather-info-visible");
-
-        arrowIcon.style.transform = "rotate(180deg)";
-        arrowIcon.style.transition = "transform 500ms";
+        rotateArrow(
+            "rotate(180deg)",
+            "transform 500ms",
+            "more-weather-info",
+            "more-weather-info-visible"
+        );
         savedLocations = [];
         savedLocations.push({
             longitude: 9.189982,
@@ -131,11 +139,12 @@ arrowIcon.addEventListener("click", () => {
         });
         localStorage.setItem("savedLocations", JSON.stringify(savedLocations));
     } else if (moreWeatherInfoWrap.classList == "more-weather-info-visible") {
-        moreWeatherInfoWrap.classList.remove("more-weather-info-visible");
-        moreWeatherInfoWrap.classList.add("more-weather-info");
-
-        arrowIcon.style.transform = "rotate(0deg)";
-        arrowIcon.style.transition = "transform 500ms";
+        rotateArrow(
+            "rotate(0deg)",
+            "transform 500ms",
+            "more-weather-info-visible",
+            "more-weather-info"
+        );
     }
 });
 
@@ -199,7 +208,7 @@ function fetchCityData() {
                     ".read-more-text-wrapper"
                 );
 
-                for (y = 0; y < data.alerts.length; y++) {
+                for (let y = 0; y < data.alerts.length; y++) {
                     const alertTypeText = document.createElement("div");
                     const alertTypeDiv =
                         document.querySelector(".alert-type-div");
@@ -222,10 +231,6 @@ function fetchCityData() {
                             weatherAlertTextWrap.classList =
                                 "weather-alert-text-wrap-visible";
                             readMoreText.innerText = "Read Less";
-                            /*        hourlyTempSection.style.opacity = "0.1";
-              hourlyTempSection.style.transition = "opacity 500ms";
-              dailyTempSection.style.opacity = "0.1";
-              dailyTempSection.style.transition = "opacity 500ms";*/
                             weatherAlertDiv.style.borderRadius = "0";
                             weatherAlertDiv.style.transition =
                                 "borderRadius 500ms";
@@ -263,7 +268,7 @@ function fetchCityData() {
             let feelsLikeTemp = data.current.feels_like;
             let dewPoint = data.current.dew_point;
 
-            if (localStorage.getItem("measurement-unit") == "metric") {
+            if (localStorage.getItem("temp-unit") == "metric") {
                 dataCurrentTemp = (data.current.temp - 32) / 1.8;
                 dataDailyTempMaxMain = (data.daily[0].temp.max - 32) / 1.8;
                 dataDailyTempMinMain = (data.daily[0].temp.min - 32) / 1.8;
@@ -301,10 +306,10 @@ function fetchCityData() {
             dataCurrenWindSpeed = data.current.wind_speed;
             selectedWindSpeedUnit = `MPH`;
 
-            if (localStorage.getItem("measurement-unit") == "kmh-btn") {
+            if (localStorage.getItem("speed-unit") == "kmh-btn") {
                 selectedWindSpeedUnit = `KMH`;
                 dataCurrenWindSpeed = data.current.wind_speed * 1.609344;
-            } else if (localStorage.getItem("measurement-unit") == "ms-btn") {
+            } else if (localStorage.getItem("speed-unit") == "ms-btn") {
                 selectedWindSpeedUnit = `M/S`;
                 dataCurrenWindSpeed = data.current.wind_speed / 2.237;
             }
@@ -354,7 +359,7 @@ function fetchCityData() {
             for (h = 1; h < 24; h++) {
                 let hourlyTemp = data.hourly[h].temp;
 
-                if (localStorage.getItem("measurement-unit") == "metric") {
+                if (localStorage.getItem("temp-unit") == "metric") {
                     hourlyTemp = (data.hourly[h].temp - 32) / 1.8;
                 }
 
@@ -415,7 +420,7 @@ function fetchCityData() {
                 let dataDailyTempMax = data.daily[d].temp.max;
                 let dataDailyTempMin = data.daily[d].temp.min;
 
-                if (localStorage.getItem("measurement-unit") == "metric") {
+                if (localStorage.getItem("temp-unit") == "metric") {
                     dataDailyTempMax = (data.daily[d].temp.max - 32) / 1.8;
                     dataDailyTempMin = (data.daily[d].temp.min - 32) / 1.8;
                 }
@@ -542,7 +547,7 @@ if (localStorage.getItem("savedLocations") !== null) {
     }
 } else if (
     localStorage.getItem("savedLocations") == null ||
-    localStorage.getItem("measurement-unit") == null
+    localStorage.getItem("speed-unit") == null
     //||  localStorage.getItem("speed-unit") == null
 ) {
     bodyBackgroundColor =
