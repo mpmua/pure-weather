@@ -1,6 +1,6 @@
 @font-face {
   font-family: Roboto-Light;
-  src: url("../assets/font/Roboto-Light.ttf");
+  src: url("/assets/Roboto-Light-c576c506.ttf");
 }
 
 #page-wrap {
@@ -629,3 +629,159 @@ table {
     transform: translate(24px, 0);
   }
 }
+@font-face {
+    font-family: weathericons;
+    src: url(/assets/weathericons-regular-webfont-3afed4f7.eot);
+    src: url(/assets/weathericons-regular-webfont-3afed4f7.eot) format('embedded-opentype'), url(/assets/weathericons-regular-webfont-93276477.woff2) format('woff2'), url(/assets/weathericons-regular-webfont-d4e90136.woff) format('woff'), url(/assets/weathericons-regular-webfont-176bda66.ttf) format('truetype'), url(/assets/weathericons-regular-webfont-e1bd62a7.svg#weather_iconsregular) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+.wi {
+    display: inline-block;
+    font-family: weathericons;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+
+.wi-day-sunny:before {
+    content: "\f00d"
+}
+
+.wi-day-sunny-overcast:before {
+    content: "\f00c"
+}
+
+.wi-day-cloudy:before {
+    content: "\f002"
+}
+
+.wi-day-cloudy-gusts:before {
+    content: "\f000"
+}
+
+.wi-day-cloudy-windy:before {
+    content: "\f001"
+}
+
+.wi-day-cloudy-high:before {
+    content: "\f07d"
+}
+
+.wi-cloud:before {
+    content: "\f041"
+}
+
+.wi-cloudy:before {
+    content: "\f013"
+}
+
+.wi-cloud-down:before {
+    content: "\f03d"
+}
+
+.wi-cloud-up:before {
+    content: "\f040"
+}
+
+.wi-cloud-refresh:before {
+    content: "\f03e"
+}
+
+.wi-cloudy-gusts:before {
+    content: "\f011"
+}
+
+.wi-cloudy-windy:before {
+    content: "\f012"
+}
+
+.wi-showers:before {
+    content: "\f01a"
+}
+
+.wi-day-rain-mix:before {
+    content: "\f006"
+}
+
+.wi-thunderstorm:before {
+    content: "\f01e"
+}
+
+.wi-thunderstorm:before {
+    content: "\f01e"
+}
+
+.wi-snow:before {
+    content: "\f01b"
+}
+
+.wi-snow-wind:before {
+    content: "\f064"
+}
+
+.wi-snow:before {
+    content: "\f01b"
+}
+
+.wi-fog:before {
+    content: "\f014"
+}
+
+.wi-night-clear:before {
+    content: "\f02e"
+}
+
+.wi-night-alt-cloudy:before {
+    content: "\f086"
+}
+
+.wi-night-alt-cloudy-gusts:before {
+    content: "\f022"
+}
+
+.wi-night-alt-cloudy-windy:before {
+    content: "\f023"
+}
+
+.wi-night-alt-cloudy-high:before {
+    content: "\f07e"
+}
+
+.wi-night-alt-sprinkle:before {
+    content: "\f02b"
+}
+
+.wi-night-alt-showers:before {
+    content: "\f029"
+}
+
+.wi-night-alt-thunderstorm:before {
+    content: "\f02d"
+}
+
+.wi-night-alt-snow:before {
+    content: "\f02a"
+}
+
+.wi-night-alt-snow-thunderstorm:before {
+    content: "\f06d"
+}
+
+.wi-night-alt-snow-wind:before {
+    content: "\f067"
+}
+
+.wi-night-fog:before {
+    content: "\f04a"
+}
+
+
+
+
+
+

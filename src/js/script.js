@@ -27,11 +27,13 @@ const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
         navigator.serviceWorker
-            .register("/serviceworker.js")
+            .register("serviceworker.js")
             .then(res => console.log("service worker registered"))
             .catch(err => console.log("service worker not registered", err));
     });
 }
+
+ let bodyBackgroundColor;
 
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
@@ -328,7 +330,7 @@ function fetchCityData() {
             document.querySelector(".dew-point-stat").innerHTML =
                 Math.round(dewPoint) + ` ${selectedTempUnit}`;
 
-            let bodyBackgroundColor;
+           
 
             if (data.current.weather[0].main == "Rain") {
                 bodyBackgroundColor = colorObjects.rain;

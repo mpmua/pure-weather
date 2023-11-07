@@ -1,7 +1,0 @@
-{
-  "name": "Pure Weather",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
