@@ -1,4 +1,4 @@
-import "./global-064e781a.js";
+import "./global-de22471e.js";
 const settings = "";
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");

@@ -1,3 +1,5 @@
+
+
 // - - - - - - -GLOBAL VARIABLES----------
 const pageWrap = document.getElementById("page-wrap");
 const refreshIconWrapper = document.querySelector(
@@ -33,7 +35,7 @@ if ("serviceWorker" in navigator) {
     });
 }
 
- let bodyBackgroundColor;
+let bodyBackgroundColor;
 
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
@@ -329,8 +331,6 @@ function fetchCityData() {
             );
             document.querySelector(".dew-point-stat").innerHTML =
                 Math.round(dewPoint) + ` ${selectedTempUnit}`;
-
-           
 
             if (data.current.weather[0].main == "Rain") {
                 bodyBackgroundColor = colorObjects.rain;

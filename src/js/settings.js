@@ -1,3 +1,5 @@
+
+
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
 const addLocationButton = document.querySelector(".add-location-btn");
