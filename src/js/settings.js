@@ -1,4 +1,8 @@
-import citiesJsonFile from "./current_city_list.json";
+// import citiesJsonFile from "./current_city_list.json";
+// import citiesJsonFile from "./data.json";
+import citiesJsonFile from "../js/cities_data";
+console.log(citiesJsonFile);
+// const citiesJsonFile = "../";
 
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
@@ -26,16 +30,19 @@ if (localStorage.getItem("speed-unit") == null) {
   localStorage.setItem("speed-unit", "mph-btn");
 }
 
-let owmCityJsonFile;
+let owmCityJsonFile = citiesJsonFile;
 // console.log(owmCityJsonFile);
 
 fetch(citiesJsonFile)
   // fetch("./current_city_list.json")
+
   .then((response) => {
+    // console.log(response.json());
     return response.json();
   })
   .then((data) => {
-    owmCityJsonFile = data;
+    console.log(data);
+    // owmCityJsonFile = data;
     console.log("hi");
     console.log(owmCityJsonFile);
   });

@@ -15,6 +15,7 @@
   "dependencies": {
     "@capacitor/core": "^5.5.1",
     "@capacitor/status-bar": "^5.0.6",
-    "create-vite": "^4.4.1"
+    "create-vite": "^4.4.1",
+    "node": "^21.1.0"
   }
 }

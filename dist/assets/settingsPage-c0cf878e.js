@@ -162152,6 +162152,7 @@ const citiesJsonFile = [
     lon: -1.69846
   }
 ];
+console.log(citiesJsonFile);
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
 const addLocationButton = document.querySelector(".add-location-btn");
@@ -162174,11 +162175,11 @@ if (localStorage.getItem("temp-unit") == null) {
 if (localStorage.getItem("speed-unit") == null) {
   localStorage.setItem("speed-unit", "mph-btn");
 }
-let owmCityJsonFile;
+let owmCityJsonFile = citiesJsonFile;
 fetch(citiesJsonFile).then((response) => {
   return response.json();
 }).then((data) => {
-  owmCityJsonFile = data;
+  console.log(data);
   console.log("hi");
   console.log(owmCityJsonFile);
 });
