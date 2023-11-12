@@ -1,8 +1,5 @@
-// import citiesJsonFile from "./current_city_list.json";
-// import citiesJsonFile from "./data.json";
-import citiesJsonFile from "../js/cities_data";
-console.log(citiesJsonFile);
-// const citiesJsonFile = "../";
+import citiesData from "../js/cities_data";
+console.log(citiesData);
 
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
@@ -18,9 +15,14 @@ const cityField = document.getElementById("city-name-value");
 const latitudeField = document.getElementById("latitude-name-value");
 const longitudeField = document.getElementById("longitude-name-value");
 const locationManualEntry = document.querySelector(".location-manual-entry");
+const addLocationInputs = document.querySelectorAll(".add-location-input");
 
 const searchManualBtn = document.querySelector(".add-location-add-btn");
 const cancelBtn = document.querySelector(".add-location-cancel-btn");
+
+let currentLong;
+let currentLat;
+let selectedCity;
 
 if (localStorage.getItem("temp-unit") == null) {
   localStorage.setItem("temp-unit", "imperial-btn");
@@ -30,22 +32,22 @@ if (localStorage.getItem("speed-unit") == null) {
   localStorage.setItem("speed-unit", "mph-btn");
 }
 
-let owmCityJsonFile = citiesJsonFile;
+let owmCityJsonFile = citiesData;
 // console.log(owmCityJsonFile);
 
-fetch(citiesJsonFile)
-  // fetch("./current_city_list.json")
+// fetch(citiesJsonFile)
+//   // fetch("./current_city_list.json")
 
-  .then((response) => {
-    // console.log(response.json());
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-    // owmCityJsonFile = data;
-    console.log("hi");
-    console.log(owmCityJsonFile);
-  });
+//   .then((response) => {
+//     // console.log(response.json());
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     // owmCityJsonFile = data;
+//     console.log("hi");
+//     console.log(owmCityJsonFile);
+//   });
 
 let bodyBackgroundColor;
 if (localStorage.getItem("bgcolor") == null) {
@@ -123,6 +125,8 @@ function addMeasurementAndTempUnitEventListeners(arr, unitType) {
 addMeasurementAndTempUnitEventListeners(speedBtnsArray, "speed-unit");
 addMeasurementAndTempUnitEventListeners(tempUnitsArray, "temp-unit");
 
+let filteredOwmCityJsonFile;
+
 function filterCities() {
   searchManualBtn.style.visibility = "hidden";
 
@@ -155,8 +159,8 @@ function filterCities() {
 
 addLocationButton.addEventListener("click", () => {
   addLocationPopUpBox.style.display = "block";
+  locationManualEntry.style.display = "none";
 
-  let filteredOwmCityJsonFile;
   let cityFieldSearchLi = document.createElement("li");
 
   cityField.addEventListener("input", filterCities);
@@ -178,6 +182,8 @@ addLocationButton.addEventListener("click", () => {
     }
 
     cityMatchList.style.display = "none";
+    console.log(latlonArray[0]);
+    console.log(latlonArray[1]);
     longitudeField.value = latlonArray[0].replaceAll('"', "");
     latitudeField.value = latlonArray[1].replaceAll('"', "");
   });
@@ -189,18 +195,36 @@ function clearManualSearchTextFields() {
   longitudeField.value = "";
 }
 
-function searchManualBtnFunc(display, innerHTML) {
-  cityField.removeEventListener("input", filterCities);
-  locationManualEntry.style.display = display;
-  searchManualBtn.innerHTML = innerHTML;
-  clearManualSearchTextFields();
-}
+// function searchManualBtnFunc(display, innerHTML) {
+//   cityField.removeEventListener("input", filterCities);
+//   locationManualEntry.style.display = display;
+//   searchManualBtn.innerHTML = innerHTML;
+//   clearManualSearchTextFields();
+// }
+
+// searchManualBtn.addEventListener("click", () => {
+//   if (locationManualEntry.style.display == "none") {
+//     searchManualBtnFunc("block", "AUTO");
+//   } else if (locationManualEntry.style.display == "block") {
+//     searchManualBtnFunc("none", "MANUAL");
+//   }
+// });
 
 searchManualBtn.addEventListener("click", () => {
   if (locationManualEntry.style.display == "none") {
-    searchManualBtnFunc("block", "AUTO");
+    cityField.removeEventListener("input", filterCities);
+    locationManualEntry.style.display = "block";
+    searchManualBtn.innerHTML = "AUTO";
+    cityField.value = "";
+    latitudeField.value = "";
+    longitudeField.value = "";
   } else if (locationManualEntry.style.display == "block") {
-    searchManualBtnFunc("none", "MANUAL");
+    cityField.addEventListener("input", filterCities);
+    locationManualEntry.style.display = "none";
+    searchManualBtn.innerHTML = "MANUAL";
+    cityField.value = "";
+    latitudeField.value = "";
+    longitudeField.value = "";
   }
 });
 
@@ -286,6 +310,7 @@ currentLocationButton.addEventListener("click", () => {
 
     fetch(cityName)
       .then((response) => {
+        console.log(response);
         return response.json();
       })
       .then((data) => {

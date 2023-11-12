@@ -61,9 +61,7 @@ function swipeCheck() {
     refreshIconWrapper.classList.add("pull-down-icon-wrapper-visible");
     fetchCityData();
     setTimeout(() => {
-      refreshIconWrapper.classList.remove(
-        "pull-down-icon-wrapper-visible"
-      );
+      refreshIconWrapper.classList.remove("pull-down-icon-wrapper-visible");
     }, 2e3);
   }
 }
@@ -244,7 +242,7 @@ function fetchCityData() {
        </div>`;
     if (data.current.temp > 99)
       ;
-    dataCurrenWindSpeed = data.current.wind_speed;
+    let dataCurrenWindSpeed = data.current.wind_speed;
     selectedWindSpeedUnit = `MPH`;
     if (localStorage.getItem("speed-unit") == "kmh-btn") {
       selectedWindSpeedUnit = `KMH`;
@@ -283,16 +281,16 @@ function fetchCityData() {
     document.body.style.backgroundImage = bodyBackgroundColor;
     localStorage.setItem("bgcolor", bodyBackgroundColor);
     hourlyTempSection.innerHTML = "";
-    for (h = 1; h < 24; h++) {
+    for (let h = 1; h < 24; h++) {
       let hourlyTemp = data.hourly[h].temp;
       if (localStorage.getItem("temp-unit") == "metric") {
         hourlyTemp = (data.hourly[h].temp - 32) / 1.8;
       }
       let hourlyTempDiv = document.createElement("div");
       hourlyTempDiv.setAttribute("class", "hourly-divs");
-      hourObj = new Date(data.hourly[h].dt * 1e3);
-      hours = hourObj.getUTCHours();
-      formattedTime = hours.toString().padStart(2, "0") + ":00";
+      let hourObj = new Date(data.hourly[h].dt * 1e3);
+      let hours = hourObj.getUTCHours();
+      let formattedTime = hours.toString().padStart(2, "0") + ":00";
       if (h == 1) {
         formattedTime = "Now";
       }
@@ -314,7 +312,7 @@ function fetchCityData() {
       hourlyTempSection.appendChild(hourlyTempDiv);
     }
     dailyTempSection.innerHTML = "";
-    for (d = 0; d < 8; d++) {
+    for (let d = 0; d < 8; d++) {
       const days = [
         "Sunday",
         "Monday",
@@ -337,7 +335,7 @@ function fetchCityData() {
       }
       let dailyWeatherDescription = data.daily[d].weather[0].description;
       let dailyWeatherDescriptionSplit = dailyWeatherDescription.split(" ");
-      for (t = 0; t < dailyWeatherDescriptionSplit.length; t++) {
+      for (let t = 0; t < dailyWeatherDescriptionSplit.length; t++) {
         dailyWeatherDescriptionSplit[t].charAt(0).toUpperCase() + dailyWeatherDescriptionSplit[t].slice(1);
       }
       let dailyPopValue = Math.round(data.daily[d].pop * 100);
@@ -377,14 +375,14 @@ function determineTempUnit() {
     selectedWindSpeedUnit = `mph`;
   }
 }
+let lastLocationArray;
 if (localStorage.getItem("savedLocations") !== null) {
   locallyStoredCities = JSON.parse(localStorage.getItem("savedLocations"));
-  let lastLocationArray2 = [];
-  for (c = 0; c < locallyStoredCities.length; c++) {
+  lastLocationArray = [];
+  for (let c = 0; c < locallyStoredCities.length; c++) {
     let sideMenuCityLi = document.createElement("div");
     sideMenuCityLi.setAttribute("class", "side-menu-location-li");
     sideMenuCityLi.setAttribute("id", c);
-    currentCityIndex = c;
     sideMenuCityLi.innerHTML = locallyStoredCities[c].city;
     locationsUl.appendChild(sideMenuCityLi);
     setTimeout(function() {
@@ -402,10 +400,10 @@ if (localStorage.getItem("savedLocations") !== null) {
       currentLong = locallyStoredCities[clicked].longitude;
       currentLat = locallyStoredCities[clicked].latitude;
       selectedCity = locallyStoredCities[clicked].city;
-      for (let l = 0; l < lastLocationArray2.length; l++) {
-        lastLocationArray2.splice(l);
+      for (let l = 0; l < lastLocationArray.length; l++) {
+        lastLocationArray.splice(l);
       }
-      lastLocationArray2.push({
+      lastLocationArray.push({
         currentLong,
         currentLat,
         selectedCity,
@@ -414,7 +412,7 @@ if (localStorage.getItem("savedLocations") !== null) {
       document.getElementById(clicked).style.background = "rgba(0, 0, 0, 0.5)";
       localStorage.setItem(
         "lastLocationArray",
-        JSON.stringify(lastLocationArray2)
+        JSON.stringify(lastLocationArray)
       );
       determineTempUnit();
       fetchCityData();
@@ -430,7 +428,7 @@ if (localStorage.getItem("lastLocationArray") !== null) {
   currentLong = lastLocationArray[0].currentLong;
   currentLat = lastLocationArray[0].currentLat;
   selectedCity = lastLocationArray[0].selectedCity;
-  lastClicked = lastLocationArray[0].lastClicked;
+  lastLocationArray[0].lastClicked;
   if (lastLocationArray.lastClicked !== null)
     ;
   else if (lastLocationArray.lastClicked == null) {

@@ -1,4 +1,4 @@
-[
+const citiesData = [
   {
     id: 14256,
     country: "IR",
@@ -162150,3 +162150,5 @@
     lon: -1.69846,
   },
 ];
+
+export default citiesData;
