@@ -25,16 +25,6 @@ const alertDescription = document.querySelector(".alert-description");
 const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
 
 let lastClicked;
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker
-      .register("/serviceworker.js")
-      .then((res) => console.log("service worker registered"))
-      .catch((err) => console.log("service worker not registered", err));
-  });
-}
-
 let bodyBackgroundColor;
 
 let pStart = { x: 0, y: 0 };

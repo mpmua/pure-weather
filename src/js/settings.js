@@ -1,5 +1,4 @@
 import citiesData from "../js/cities_data";
-console.log(citiesData);
 
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
@@ -15,8 +14,6 @@ const cityField = document.getElementById("city-name-value");
 const latitudeField = document.getElementById("latitude-name-value");
 const longitudeField = document.getElementById("longitude-name-value");
 const locationManualEntry = document.querySelector(".location-manual-entry");
-const addLocationInputs = document.querySelectorAll(".add-location-input");
-
 const searchManualBtn = document.querySelector(".add-location-add-btn");
 const cancelBtn = document.querySelector(".add-location-cancel-btn");
 
@@ -33,21 +30,6 @@ if (localStorage.getItem("speed-unit") == null) {
 }
 
 let owmCityJsonFile = citiesData;
-// console.log(owmCityJsonFile);
-
-// fetch(citiesJsonFile)
-//   // fetch("./current_city_list.json")
-
-//   .then((response) => {
-//     // console.log(response.json());
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//     // owmCityJsonFile = data;
-//     console.log("hi");
-//     console.log(owmCityJsonFile);
-//   });
 
 let bodyBackgroundColor;
 if (localStorage.getItem("bgcolor") == null) {
@@ -182,8 +164,6 @@ addLocationButton.addEventListener("click", () => {
     }
 
     cityMatchList.style.display = "none";
-    console.log(latlonArray[0]);
-    console.log(latlonArray[1]);
     longitudeField.value = latlonArray[0].replaceAll('"', "");
     latitudeField.value = latlonArray[1].replaceAll('"', "");
   });
@@ -310,7 +290,6 @@ currentLocationButton.addEventListener("click", () => {
 
     fetch(cityName)
       .then((response) => {
-        console.log(response);
         return response.json();
       })
       .then((data) => {
