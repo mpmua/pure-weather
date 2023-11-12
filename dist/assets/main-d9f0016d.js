@@ -216,7 +216,7 @@ function fetchCityData() {
     let dataDailyTempMinMain = data.daily[0].temp.min;
     let feelsLikeTemp = data.current.feels_like;
     let dewPoint = data.current.dew_point;
-    if (localStorage.getItem("temp-unit") == "metric") {
+    if (localStorage.getItem("temp-unit") == "metric-btn") {
       dataCurrentTemp = (data.current.temp - 32) / 1.8;
       dataDailyTempMaxMain = (data.daily[0].temp.max - 32) / 1.8;
       dataDailyTempMinMain = (data.daily[0].temp.min - 32) / 1.8;
@@ -283,7 +283,7 @@ function fetchCityData() {
     hourlyTempSection.innerHTML = "";
     for (let h = 1; h < 24; h++) {
       let hourlyTemp = data.hourly[h].temp;
-      if (localStorage.getItem("temp-unit") == "metric") {
+      if (localStorage.getItem("temp-unit") == "metric-btn") {
         hourlyTemp = (data.hourly[h].temp - 32) / 1.8;
       }
       let hourlyTempDiv = document.createElement("div");
@@ -329,7 +329,7 @@ function fetchCityData() {
       }
       let dataDailyTempMax = data.daily[d].temp.max;
       let dataDailyTempMin = data.daily[d].temp.min;
-      if (localStorage.getItem("temp-unit") == "metric") {
+      if (localStorage.getItem("temp-unit") == "metric-btn") {
         dataDailyTempMax = (data.daily[d].temp.max - 32) / 1.8;
         dataDailyTempMin = (data.daily[d].temp.min - 32) / 1.8;
       }
@@ -368,9 +368,9 @@ function fetchCityData() {
 }
 function determineTempUnit() {
   selectedLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLat}&lon=${currentLong}&units=imperial&appid=${apiKey}`;
-  if (localStorage.getItem("temp-unit") == "metric") {
+  if (localStorage.getItem("temp-unit") == "metric-btn") {
     selectedTempUnit = `C`;
-  } else if (localStorage.getItem("temp-unit") == "imperial") {
+  } else if (localStorage.getItem("temp-unit") == "imperial-btn") {
     selectedTempUnit = `F`;
     selectedWindSpeedUnit = `mph`;
   }
