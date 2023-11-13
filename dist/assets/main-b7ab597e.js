@@ -26,6 +26,10 @@ document.querySelector(".alert-event-name");
 document.querySelector(".alert-description");
 const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
 let bodyBackgroundColor;
+if (localStorage.getItem("unit") || localStorage.getItem("temp-unit") === "ms" || localStorage.getItem("temp-unit") === "kmh" || localStorage.getItem("temp-unit") === "mph") {
+  alert("Please re-select temperature and windspeed units from settings page");
+  window.location.replace("settings.html");
+}
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
 function swipeStart(e) {

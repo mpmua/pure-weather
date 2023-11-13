@@ -27,6 +27,17 @@ const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
 let lastClicked;
 let bodyBackgroundColor;
 
+// This if statement is for backwards compatibility purposes only since some of the localstorage item names have changed, this code will be removed once users have updated their applications
+if (
+  localStorage.getItem("unit") ||
+  localStorage.getItem("temp-unit") === "ms" ||
+  localStorage.getItem("temp-unit") === "kmh" ||
+  localStorage.getItem("temp-unit") === "mph"
+) {
+  alert("Please re-select temperature and windspeed units from settings page");
+  window.location.replace("settings.html");
+}
+
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
 
