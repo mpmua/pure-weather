@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pure Weather</string>
+    <string name="title_activity_main">Pure Weather</string>
+    <string name="package_name">com.weatherapp.pure</string>
+    <string name="custom_url_scheme">com.weatherapp.pure</string>
+</resources>

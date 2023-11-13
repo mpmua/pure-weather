@@ -1,44 +1,36 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:32:9-40:20
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:27:9-35:20
 	android:grantUriPermissions
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:36:13-47
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:31:13-47
 	android:authorities
 		INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:34:13-64
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:29:13-64
 	android:exported
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:35:13-37
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:33:13-62
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:28:13-62
 manifest
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-49:12
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
 MERGED from [:capacitor-splash-screen] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/splash-screen/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [:capacitor-app] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:capacitor-geolocation] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/geolocation/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:capacitor-haptics] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:capacitor-keyboard] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/keyboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-status-bar] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/status-bar/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-android] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/android/capacitor/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [:capacitor-cordova-android-plugins] /Users/mvp/Documents/Projects/pure-weather/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/mvp/.gradle/caches/transforms-3/d616eff8b9949c38701c698bd3b70bf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/mvp/.gradle/caches/transforms-3/07607687f6907796357e3f032875fb2c/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mvp/.gradle/caches/transforms-3/0c86279a2e1ca58ee2616a63257e1261/transformed/play-services-location-21.0.1/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/mvp/.gradle/caches/transforms-3/34b734860e09606b529000f2d5ae76de/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.5.6] /Users/mvp/.gradle/caches/transforms-3/c18c62c106ae291bb80f880c4c194d28/transformed/fragment-1.5.6/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mvp/.gradle/caches/transforms-3/d26b9c475b665ba9cc4bb28241d712fb/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/mvp/.gradle/caches/transforms-3/05f6c9844b1ebf98fa2a4e100976a171/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.webkit:webkit:1.6.1] /Users/mvp/.gradle/caches/transforms-3/92160eb768698778872680bd8f0db248/transformed/webkit-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mvp/.gradle/caches/transforms-3/3438a6fac7e0b1a4fa2518ecaa266b1b/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mvp/.gradle/caches/transforms-3/88a91fbd17597165a89c13f772681629/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -69,18 +61,10 @@ MERGED from [org.apache.cordova:framework:10.1.1] /Users/mvp/.gradle/caches/tran
 	xmlns:android
 		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:5:5-41:19
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:5:5-41:19
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:4:5-36:19
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:4:5-36:19
 MERGED from [:capacitor-cordova-android-plugins] /Users/mvp/Documents/Projects/pure-weather/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-9:19
 MERGED from [:capacitor-cordova-android-plugins] /Users/mvp/Documents/Projects/pure-weather/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-9:19
-MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mvp/.gradle/caches/transforms-3/0c86279a2e1ca58ee2616a63257e1261/transformed/play-services-location-21.0.1/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mvp/.gradle/caches/transforms-3/0c86279a2e1ca58ee2616a63257e1261/transformed/play-services-location-21.0.1/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/mvp/.gradle/caches/transforms-3/34b734860e09606b529000f2d5ae76de/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/mvp/.gradle/caches/transforms-3/34b734860e09606b529000f2d5ae76de/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
-MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /Users/mvp/.gradle/caches/transforms-3/858e16b25094edd179e94d6f689c4ffc/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:23:5-33:19
@@ -98,117 +82,87 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/mvp/.gradle/caches/t
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.10.0] /Users/mvp/.gradle/caches/transforms-3/af9d7449be3d755a667c1192a058cff7/transformed/core-1.10.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:9:9-35
 	android:label
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:7:9-41
 	android:roundIcon
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:8:9-54
 	android:icon
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:6:9-43
 	android:allowBackup
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:5:9-35
 	android:theme
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:11:9-40
-activity#io.ionic.starter.MainActivity
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:13:9-30:20
-	android:screenOrientation
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:15:13-49
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:10:9-40
+activity#com.weatherapp.pure.MainActivity
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:12:9-25:20
 	android:label
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:18:13-56
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:15:13-56
 	android:launchMode
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:20:13-44
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:17:13-44
 	android:exported
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:14:13-36
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:18:13-36
 	android:configChanges
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:16:13-129
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:13:13-129
 	android:theme
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:19:13-62
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:16:13-62
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:17:13-57
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:14:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:25:13-28:29
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:20:13-23:29
 action#android.intent.action.MAIN
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:26:17-69
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:27:17-77
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:27:27-74
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:22:27-74
 uses-permission#android.permission.INTERNET
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:45:5-67
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:5-67
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:45:22-64
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:46:5-81
-	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:46:22-78
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:47:5-79
-	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:47:22-76
-uses-feature#android.hardware.location.gps
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:48:5-66
-	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:48:19-63
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:22-64
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:37:13-39:64
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:32:13-34:64
 	android:resource
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:39:17-51
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:34:17-51
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:38:17-67
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:33:17-67
 uses-sdk
 INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml
 MERGED from [:capacitor-splash-screen] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/splash-screen/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-splash-screen] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/splash-screen/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [:capacitor-app] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-app] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-geolocation] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/geolocation/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-geolocation] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/geolocation/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-haptics] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-haptics] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-keyboard] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/keyboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:capacitor-keyboard] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/keyboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-status-bar] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/status-bar/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-status-bar] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/status-bar/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-android] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/android/capacitor/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:capacitor-android] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/android/capacitor/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [:capacitor-cordova-android-plugins] /Users/mvp/Documents/Projects/pure-weather/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
 MERGED from [:capacitor-cordova-android-plugins] /Users/mvp/Documents/Projects/pure-weather/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/mvp/.gradle/caches/transforms-3/d616eff8b9949c38701c698bd3b70bf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/mvp/.gradle/caches/transforms-3/d616eff8b9949c38701c698bd3b70bf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/mvp/.gradle/caches/transforms-3/07607687f6907796357e3f032875fb2c/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/mvp/.gradle/caches/transforms-3/07607687f6907796357e3f032875fb2c/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mvp/.gradle/caches/transforms-3/0c86279a2e1ca58ee2616a63257e1261/transformed/play-services-location-21.0.1/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/mvp/.gradle/caches/transforms-3/0c86279a2e1ca58ee2616a63257e1261/transformed/play-services-location-21.0.1/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/mvp/.gradle/caches/transforms-3/34b734860e09606b529000f2d5ae76de/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/mvp/.gradle/caches/transforms-3/34b734860e09606b529000f2d5ae76de/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /Users/mvp/.gradle/caches/transforms-3/f286f65a9a65237e0bbe8d8b4165d817/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-splashscreen:1.0.0] /Users/mvp/.gradle/caches/transforms-3/8e22d4f2067e03a5811e880ed40530e2/transformed/core-splashscreen-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.5.6] /Users/mvp/.gradle/caches/transforms-3/c18c62c106ae291bb80f880c4c194d28/transformed/fragment-1.5.6/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.5.6] /Users/mvp/.gradle/caches/transforms-3/c18c62c106ae291bb80f880c4c194d28/transformed/fragment-1.5.6/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mvp/.gradle/caches/transforms-3/d26b9c475b665ba9cc4bb28241d712fb/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mvp/.gradle/caches/transforms-3/d26b9c475b665ba9cc4bb28241d712fb/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mvp/.gradle/caches/transforms-3/c5cb76bf9d297673abf471ef25d5a81e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/mvp/.gradle/caches/transforms-3/05f6c9844b1ebf98fa2a4e100976a171/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/mvp/.gradle/caches/transforms-3/05f6c9844b1ebf98fa2a4e100976a171/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
-MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.7.0] /Users/mvp/.gradle/caches/transforms-3/5f865b6f319ad4d3b83980c07fef3a3f/transformed/activity-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mvp/.gradle/caches/transforms-3/9bf55816d51a03abd73bb2d588bf9495/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/mvp/.gradle/caches/transforms-3/caa7861359c0f93ae9a8ba41cff8448f/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.6.1] /Users/mvp/.gradle/caches/transforms-3/92160eb768698778872680bd8f0db248/transformed/webkit-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.6.1] /Users/mvp/.gradle/caches/transforms-3/92160eb768698778872680bd8f0db248/transformed/webkit-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mvp/.gradle/caches/transforms-3/3438a6fac7e0b1a4fa2518ecaa266b1b/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -255,24 +209,6 @@ MERGED from [org.apache.cordova:framework:10.1.1] /Users/mvp/.gradle/caches/tran
 		INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml
-uses-permission#android.permission.VIBRATE
-ADDED from [:capacitor-haptics] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-66
-	android:name
-		ADDED from [:capacitor-haptics] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:22-63
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/mvp/.gradle/caches/transforms-3/5286e3f21efe6535b46f97639723d6bc/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/mvp/.gradle/caches/transforms-3/03538c8eb4940aac4ea43c2b05eefd04/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/mvp/.gradle/caches/transforms-3/91df2b5ac76b8e9b42e07fc6888a78a0/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /Users/mvp/.gradle/caches/transforms-3/858e16b25094edd179e94d6f689c4ffc/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:24:9-32:20

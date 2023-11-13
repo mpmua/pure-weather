@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "io.ionic.starter.app-mergeDebugResources-26:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.weatherapp.pure.app-mergeDebugResources-24:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/Users/mvp/.gradle/caches/transforms-3/af9d7449be3d755a667c1192a058cff7/transformed/core-1.10.0/res/values-en-rXC/values-en-rXC.xml",

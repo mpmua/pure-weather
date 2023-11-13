@@ -1,5 +1,5 @@
 {
-  "appId": "com.weather.app",
+  "appId": "com.weatherapp.pure",
   "appName": "Pure Weather",
   "webDir": "dist",
   "server": {

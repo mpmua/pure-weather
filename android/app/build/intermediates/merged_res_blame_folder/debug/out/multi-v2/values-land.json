@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "io.ionic.starter.app-mergeDebugResources-26:/values-land/values-land.xml",
+            "outputFile": "com.weatherapp.pure.app-mergeDebugResources-24:/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/Users/mvp/.gradle/caches/transforms-3/07607687f6907796357e3f032875fb2c/transformed/appcompat-1.6.1/res/values-land/values-land.xml",
