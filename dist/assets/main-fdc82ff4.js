@@ -1,4 +1,4 @@
-import "./global-9ce8e3dc.js";
+import "./global-9b565cd9.js";
 const index = "";
 const weatherIcons_minSlim = "";
 document.getElementById("page-wrap");

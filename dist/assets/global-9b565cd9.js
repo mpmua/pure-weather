@@ -553,7 +553,7 @@ var Animation;
   Animation2["Slide"] = "SLIDE";
   Animation2["Fade"] = "FADE";
 })(Animation || (Animation = {}));
-const StatusBar = registerPlugin("StatusBar");
+registerPlugin("StatusBar");
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
   return "/" + dep;
@@ -606,7 +606,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
   });
 };
 const SplashScreen = registerPlugin("SplashScreen", {
-  web: () => __vitePreload(() => import("./web-d12677cb.js"), true ? [] : void 0).then((m) => new m.SplashScreenWeb())
+  web: () => __vitePreload(() => import("./web-ae9c9d9d.js"), true ? [] : void 0).then((m) => new m.SplashScreenWeb())
 });
 const toHex = (red, green, blue, alpha) => (blue | green << 8 | red << 16 | 1 << 24).toString(16).slice(1) + alpha;
 function rgbHex(red, green, blue, alpha) {
@@ -666,8 +666,6 @@ const endIndex = bgColor.indexOf(")");
 const statusBarColor = bgColor.substring(startIndex, endIndex + 1);
 console.log(statusBarColor);
 console.log(rgbHex(statusBarColor));
-StatusBar.setBackgroundColor({ color: "#ffffff" });
-StatusBar.setStyle({ style: Style.Light });
 window.addEventListener("DOMContentLoaded", () => {
   if (Capacitor.isNativePlatform()) {
     setTimeout(() => {
