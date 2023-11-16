@@ -162425,7 +162425,7 @@ function checkForLocalData() {
     savedLocations = [];
     alert(`The API key allows you to receive weather data from Openweather, this is a public key however and there is a limit for publicly accessible calls, it is strongly recommended that you sign up for your own key
   
-Please also note that your location data is only sent to openweather so they can provide you with weather data for your area.`);
+      Please also note that your location data is only sent to openweather so they can provide you with weather data for your area.`);
   } else if (localStorage.getItem("savedLocations") !== null) {
     savedLocations = JSON.parse(localStorage.getItem("savedLocations"));
     for (let s = 0; s < savedLocations.length; s++) {
