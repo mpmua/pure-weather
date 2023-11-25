@@ -4,6 +4,8 @@ Pure Weather is a weather application built using web technologies (HTML, CSS, J
 
 CapacitorJS is used overall to allow this web application to be installed onto mobile devices (Android & iOS) as a native application.
 
+Pure Weather uses the Open Weather Map API to fetch weather data, it allows users to add their locations manually or automatically by using the geolocation API, weather data is shown hourly and also daily, weather alerts are also shown when applicable.
+
 ## Getting Started
 
 To run this project locally on your machine, follow these steps:
