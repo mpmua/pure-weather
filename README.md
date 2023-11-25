@@ -1,10 +1,10 @@
 # Pure Weather
 
-Pure Weather is a weather application built using web technologies (HTML, CSS, Javascript), it uses the module bundler Vite, this helps with using CapacitorJS plugins, this application uses two CapacitorJS plugins: SplashScreen and platform detection, both of these are used from within the global.js file.
+Pure Weather uses the Open Weather Map API to fetch weather data, it allows users to add their locations manually or automatically by using the geolocation API, weather data is shown hourly and also daily, weather alerts are also shown when applicable.
+
+This application was built using web technologies (HTML, CSS, Javascript), it uses the module bundler Vite, this helps with using CapacitorJS plugins, this application uses two CapacitorJS plugins: SplashScreen and platform detection, both of these are used from within the global.js file.
 
 CapacitorJS is used overall to allow this web application to be installed onto mobile devices (Android & iOS) as a native application.
-
-Pure Weather uses the Open Weather Map API to fetch weather data, it allows users to add their locations manually or automatically by using the geolocation API, weather data is shown hourly and also daily, weather alerts are also shown when applicable.
 
 ## Getting Started
 
