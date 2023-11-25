@@ -1,6 +1,6 @@
 # Pure Weather
 
-This is a weather application built using web technologies (html, css, javascript), it uses the module bundler Vite, this helps with using CapacitorJS plugins, this application uses two CapacitorJS plugins: SplashScreen and platform detection, both of these are used from within the global.js file.
+Pure Weather is a weather application built using web technologies (HTML, CSS, Javascript), it uses the module bundler Vite, this helps with using CapacitorJS plugins, this application uses two CapacitorJS plugins: SplashScreen and platform detection, both of these are used from within the global.js file.
 
 CapacitorJS is used overall to allow this web application to be installed onto mobile devices (Android & iOS) as a native application.
 
