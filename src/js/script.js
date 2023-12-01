@@ -352,8 +352,9 @@ function fetchCityData() {
       localStorage.setItem("bgcolor", bodyBackgroundColor);
 
       hourlyTempSection.innerHTML = "";
+      console.log(data.hourly);
 
-      for (let h = 1; h < 24; h++) {
+      for (let h = 0; h < 24; h++) {
         let hourlyTemp = data.hourly[h].temp;
 
         if (localStorage.getItem("temp-unit") == "metric-btn") {
@@ -369,7 +370,7 @@ function fetchCityData() {
         let hours = hourObj.getUTCHours();
         let formattedTime = hours.toString().padStart(2, "0") + ":00";
 
-        if (h == 1) {
+        if (h === 0) {
           formattedTime = "Now";
         }
 

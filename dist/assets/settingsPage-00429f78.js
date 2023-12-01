@@ -1,4 +1,4 @@
-import "./global-20bd36fe.js";
+import "./global-a5773f3e.js";
 const settings = "";
 const citiesData = [
   {

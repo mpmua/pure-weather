@@ -1,4 +1,4 @@
-import "./global-20bd36fe.js";
+import "./global-a5773f3e.js";
 const index = "";
 const weatherIcons_minSlim = "";
 document.getElementById("page-wrap");
@@ -280,7 +280,8 @@ function fetchCityData() {
     document.body.style.backgroundImage = bodyBackgroundColor;
     localStorage.setItem("bgcolor", bodyBackgroundColor);
     hourlyTempSection.innerHTML = "";
-    for (let h = 1; h < 24; h++) {
+    console.log(data.hourly);
+    for (let h = 0; h < 24; h++) {
       let hourlyTemp = data.hourly[h].temp;
       if (localStorage.getItem("temp-unit") == "metric-btn") {
         hourlyTemp = (data.hourly[h].temp - 32) / 1.8;
@@ -290,7 +291,7 @@ function fetchCityData() {
       let hourObj = new Date(data.hourly[h].dt * 1e3);
       let hours = hourObj.getUTCHours();
       let formattedTime = hours.toString().padStart(2, "0") + ":00";
-      if (h == 1) {
+      if (h === 0) {
         formattedTime = "Now";
       }
       let weatherIconHourly = data.hourly[h].weather[0].icon;
