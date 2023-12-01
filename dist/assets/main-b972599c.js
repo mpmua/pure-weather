@@ -280,7 +280,6 @@ function fetchCityData() {
     document.body.style.backgroundImage = bodyBackgroundColor;
     localStorage.setItem("bgcolor", bodyBackgroundColor);
     hourlyTempSection.innerHTML = "";
-    console.log(data.hourly);
     for (let h = 0; h < 24; h++) {
       let hourlyTemp = data.hourly[h].temp;
       if (localStorage.getItem("temp-unit") == "metric-btn") {
