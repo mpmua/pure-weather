@@ -322,13 +322,8 @@ body {
 
 /* MEDIA QUERIES */
 
-.menu-icon {
-  padding-right: 3rem;
-  margin: 0.8rem 0.6rem;
-}
-
-.menu-icon-line {
-  width: 359%;
-  padding: 0.15rem;
-  margin: 0.5rem;
+@media only screen and (min-device-width: 768px) {
+  #add-location-pop-up {
+    max-width: 565px;
+  }
 }

@@ -593,7 +593,7 @@ registerPlugin("CapacitorHttp", {
   web: () => new CapacitorHttpPluginWeb()
 });
 const SplashScreen = registerPlugin("SplashScreen", {
-  web: () => __vitePreload(() => import("./web-e66aa342.js"), true ? [] : void 0).then((m) => new m.SplashScreenWeb())
+  web: () => __vitePreload(() => import("./web-76f8d67a.js"), true ? [] : void 0).then((m) => new m.SplashScreenWeb())
 });
 window.addEventListener("DOMContentLoaded", () => {
   if (Capacitor.isNativePlatform()) {
