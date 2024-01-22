@@ -11,10 +11,10 @@ INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/An
 	android:name
 		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:28:13-62
 manifest
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:2:1-42:12
 MERGED from [:capacitor-splash-screen] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/splash-screen/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-status-bar] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/status-bar/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-android] /Users/mvp/Documents/Projects/pure-weather/node_modules/@capacitor/android/capacitor/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -118,9 +118,13 @@ ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/Andro
 	android:name
 		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:22:27-74
 uses-permission#android.permission.INTERNET
-ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:5-67
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:39:5-67
 	android:name
-		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:22-64
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:39:22-64
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:5-81
+	android:name
+		ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:40:22-78
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /Users/mvp/Documents/Projects/pure-weather/android/app/src/main/AndroidManifest.xml:32:13-34:64
 	android:resource
