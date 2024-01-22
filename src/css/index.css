@@ -111,6 +111,7 @@
   text-decoration: none;
   color: #fff;
   list-style-type: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .side-menu-items-wrap {

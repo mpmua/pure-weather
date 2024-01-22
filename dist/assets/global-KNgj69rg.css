@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  background: black;
+}
+
+body {
+  color: #fff;
+  font-family: "Roboto-Light", sans-serif;
+  height: 100vh;
+  max-width: 1024px;
+  margin-inline: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white rgba(255, 166, 0, 0);
+  font-weight: 300;
+}
