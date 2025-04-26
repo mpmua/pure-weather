@@ -1,15 +1,15 @@
-import "./global-cJUBQubs.js";
-document.getElementById("page-wrap");
+// - - - - - - -GLOBAL VARIABLES----------
+const pageWrap = document.getElementById("page-wrap");
 const refreshIconWrapper = document.querySelector(
   ".pull-down-icon-wrapper-hidden"
 );
 const menuIcon = document.querySelector(".menu-icon");
 const sideMenu = document.querySelector(".side-menu-hidden");
-document.getElementById("city-and-temp");
+const cityAndTemp = document.getElementById("city-and-temp");
 const cityDiv = document.querySelector(".city");
 const tempDiv = document.querySelector(".temp");
 const currentForecastDiv = document.querySelector(".current-forecast");
-document.querySelector(".current-forecast-icon");
+const currentForecastIcon = document.querySelector(".current-forecast-icon");
 const minMaxCurrentDayTemp = document.querySelector(
   ".min-max-current-day-temp"
 );
@@ -19,11 +19,15 @@ const hourlyTempSection = document.getElementById("hourly-temp-section");
 const locationsUl = document.querySelector(".location-ul");
 const arrowIcon = document.querySelector(".fa-chevron-down");
 const moreWeatherInfoWrap = document.querySelector(".more-weather-info");
-document.querySelector(".alert-sender-name");
-document.querySelector(".alert-event-name");
-document.querySelector(".alert-description");
+const alertSenderName = document.querySelector(".alert-sender-name");
+const alertEventName = document.querySelector(".alert-event-name");
+const alertDescription = document.querySelector(".alert-description");
 const sideMenuItemsWrap = document.querySelector(".side-menu-items-wrap");
+
+let lastClicked;
 let bodyBackgroundColor;
+
+// This if statement is for backwards compatibility purposes only since some of the localstorage item names have changed, this code will be removed once users have updated their applications
 if (
   localStorage.getItem("unit") ||
   localStorage.getItem("temp-unit") === "ms" ||
@@ -33,8 +37,10 @@ if (
   alert("Please re-select temperature and windspeed units from settings page");
   window.location.replace("settings.html");
 }
+
 let pStart = { x: 0, y: 0 };
 let pStop = { x: 0, y: 0 };
+
 function swipeStart(e) {
   if (typeof e["targetTouches"] !== "undefined") {
     let touch = e.targetTouches[0];
@@ -45,6 +51,7 @@ function swipeStart(e) {
     pStart.y = e.screenY;
   }
 }
+
 function swipeEnd(e) {
   if (typeof e["changedTouches"] !== "undefined") {
     let touch = e.changedTouches[0];
@@ -54,19 +61,23 @@ function swipeEnd(e) {
     pStop.x = e.screenX;
     pStop.y = e.screenY;
   }
+
   swipeCheck();
 }
+
 function swipeCheck() {
   let changeY = pStart.y - pStop.y;
   let changeX = pStart.x - pStop.x;
   if (isPullDown(changeY, changeX)) {
     refreshIconWrapper.classList.add("pull-down-icon-wrapper-visible");
     fetchCityData();
+
     setTimeout(() => {
       refreshIconWrapper.classList.remove("pull-down-icon-wrapper-visible");
-    }, 2e3);
+    }, 2000);
   }
 }
+
 function isPullDown(dY, dX) {
   return (
     dY < 0 &&
@@ -74,6 +85,7 @@ function isPullDown(dY, dX) {
       (Math.abs(dX) / Math.abs(dY) <= 0.3 && dY >= 60))
   );
 }
+
 document.addEventListener(
   "touchstart",
   function (e) {
@@ -88,23 +100,33 @@ document.addEventListener(
   },
   false
 );
+
 let colorObjects = {
   rain: "linear-gradient(135deg, #486da3 10%, #30739f 100%)",
+
   thunderstorm: "linear-gradient( 135deg, #317d87 10%, #122415 100%)",
+
   drizzle: "linear-gradient( 135deg, #707ebb 10%, #1D6FA3 100%)",
+
   haze: "linear-gradient( 135deg, #bb6032 10%, #EA5455 100%)",
+
   snow: "linear-gradient( 135deg, #391d85 10%, #af65a8 100%)",
+
   atmosphere: "linear-gradient( 135deg, #2c35d9 10%, #e50404 100%)",
+
   clear: "linear-gradient(135deg, rgb(0, 138, 255) 10%, rgb(10 128 185) 100%)",
+
   clouds:
     "linear-gradient(135deg, rgb(163, 163, 163) 10%, rgb(93, 104, 136) 100%)",
 };
+
 function rotateArrow(rotate, transform, classToRemove, classToAdd) {
   arrowIcon.style.transform = rotate;
   arrowIcon.style.transition = transform;
   moreWeatherInfoWrap.classList.remove(classToRemove);
   moreWeatherInfoWrap.classList.add(classToAdd);
 }
+
 arrowIcon.addEventListener("click", () => {
   if (moreWeatherInfoWrap.classList == "more-weather-info") {
     rotateArrow(
@@ -113,12 +135,14 @@ arrowIcon.addEventListener("click", () => {
       "more-weather-info",
       "more-weather-info-visible"
     );
-    savedLocations = [];
-    savedLocations.push({
-      longitude: 9.189982,
-      latitude: 45.464203,
-      city: "Milan",
-    });
+    const savedLocations = [
+      {
+        longitude: 9.189982,
+        latitude: 45.464203,
+        city: "Milan",
+      },
+    ];
+
     localStorage.setItem("savedLocations", JSON.stringify(savedLocations));
   } else if (moreWeatherInfoWrap.classList == "more-weather-info-visible") {
     rotateArrow(
@@ -129,7 +153,10 @@ arrowIcon.addEventListener("click", () => {
     );
   }
 });
+
 var apiKey = localStorage.getItem("apiKey", apiKey);
+
+let currentCityMainPage;
 let currentLong;
 let currentLat;
 let locallyStoredCities;
@@ -137,6 +164,7 @@ let selectedLocation;
 let selectedTempUnit;
 let selectedWindSpeedUnit;
 let selectedCity;
+
 let dict = {
   "01d": "wi-day-sunny",
   "02d": "wi-day-cloudy",
@@ -157,6 +185,7 @@ let dict = {
   "13n": "wi-night-alt-snow",
   "50n": "wi-night-fog",
 };
+
 function fetchCityData() {
   fetch(selectedLocation)
     .then((response) => {
@@ -165,6 +194,7 @@ function fetchCityData() {
     .then((data) => {
       if (data.alerts) {
         weatherAlertDiv.style.display = "block";
+
         weatherAlertDiv.innerHTML = "";
         weatherAlertDiv.innerHTML = `<h1><span><i class="fas fa-exclamation-triangle"></i></span>Weather Alert</h1>
           <div class="alert-type-div">
@@ -183,6 +213,7 @@ function fetchCityData() {
         let readMoreTextWrapper = document.querySelector(
           ".read-more-text-wrapper"
         );
+
         for (let y = 0; y < data.alerts.length; y++) {
           const alertTypeText = document.createElement("div");
           const alertTypeDiv = document.querySelector(".alert-type-div");
@@ -190,11 +221,13 @@ function fetchCityData() {
           alertTypeText.innerHTML = `<p>${data.alerts[y].event}</p>`;
           alertTypeText.setAttribute("class", "alert-type-text");
           alertTypeDiv.appendChild(alertTypeText);
+
           let weatherAlertTextWrap = document.createElement("div");
           weatherAlertTextWrap.setAttribute(
             "class",
             "weather-alert-text-wrap-hidden"
           );
+
           readMoreTextWrapper.addEventListener("click", () => {
             if (
               weatherAlertTextWrap.classList == "weather-alert-text-wrap-hidden"
@@ -210,27 +243,32 @@ function fetchCityData() {
             ) {
               weatherAlertTextWrap.classList = "weather-alert-text-wrap-hidden";
               readMoreText.innerText = "Read More";
+
               weatherAlertDiv.style.borderRadius = "0.5rem";
               weatherAlertDiv.style.transition = "borderRadius 500ms";
             }
           });
+
           weatherAlertTextWrap.innerHTML = `         
           <p class="alert-sender-name"><strong>Issued By:</strong> ${data.alerts[y].sender_name}</p>
           <p class="alert-event-name"><strong>Alert Type:</strong> ${data.alerts[y].event}</p><br>
           <p class="alert-description"><strong>Description:</strong> ${data.alerts[y].description}</p>
           <br>`;
+
           weatherAlertDiv.appendChild(weatherAlertTextWrap);
         }
       } else {
         weatherAlertDiv.innerHTML = "";
         weatherAlertDiv.style.display = "none";
       }
+
       let weatherIconCurrent = data.current.weather[0].icon;
       let dataCurrentTemp = data.current.temp;
       let dataDailyTempMaxMain = data.daily[0].temp.max;
       let dataDailyTempMinMain = data.daily[0].temp.min;
       let feelsLikeTemp = data.current.feels_like;
       let dewPoint = data.current.dew_point;
+
       if (localStorage.getItem("temp-unit") == "metric-btn") {
         dataCurrentTemp = (data.current.temp - 32) / 1.8;
         dataDailyTempMaxMain = (data.daily[0].temp.max - 32) / 1.8;
@@ -238,11 +276,15 @@ function fetchCityData() {
         feelsLikeTemp = (data.current.feels_like - 32) / 1.8;
         dewPoint = (data.current.dew_point - 32) / 1.8;
       }
+
       cityDiv.innerHTML = selectedCity;
+
       let dataCurrentWeatherMain = data.current.weather[0].main;
+
       if (dataCurrentWeatherMain == "Thunderstorm") {
         dataCurrentWeatherMain = "Thunder";
       }
+
       tempDiv.innerHTML = `${Math.round(
         dataCurrentTemp
       )}<span class="temp-unit-current-temp"><i class="far fa-circle"></i></span>`;
@@ -256,9 +298,15 @@ function fetchCityData() {
             dataDailyTempMinMain
           )}<span class="temp-unit-current-min-temp-unit"><i class="far fa-circle"></i></span><span>${selectedTempUnit}</span>
        </div>`;
-      if (data.current.temp > 99);
+
+      if (data.current.temp > 99) {
+        //   tempDiv.style.fontSize = "7rem";
+        //   tempDiv.style.width = "400px";
+      }
+
       let dataCurrenWindSpeed = data.current.wind_speed;
       selectedWindSpeedUnit = `MPH`;
+
       if (localStorage.getItem("speed-unit") == "kmh-btn") {
         selectedWindSpeedUnit = `KMH`;
         dataCurrenWindSpeed = data.current.wind_speed * 1.609344;
@@ -266,6 +314,7 @@ function fetchCityData() {
         selectedWindSpeedUnit = `M/S`;
         dataCurrenWindSpeed = data.current.wind_speed / 2.237;
       }
+
       document.querySelector(".feels-like-stat").innerHTML =
         Math.round(feelsLikeTemp) + ` ${selectedTempUnit}`;
       document.querySelector(".wind-stat").innerHTML =
@@ -279,6 +328,7 @@ function fetchCityData() {
       );
       document.querySelector(".dew-point-stat").innerHTML =
         Math.round(dewPoint) + ` ${selectedTempUnit}`;
+
       if (data.current.weather[0].main == "Rain") {
         bodyBackgroundColor = colorObjects.rain;
       } else if (data.current.weather[0].main == "Thunderstorm") {
@@ -299,30 +349,42 @@ function fetchCityData() {
         bodyBackgroundColor =
           "linear-gradient( 135deg, #c065c7 10%, #1904E5 100%)";
       }
+
       document.body.style.backgroundImage = bodyBackgroundColor;
       localStorage.setItem("bgcolor", bodyBackgroundColor);
+
       hourlyTempSection.innerHTML = "";
+
       for (let h = 0; h < 24; h++) {
         let hourlyTemp = data.hourly[h].temp;
+
         if (localStorage.getItem("temp-unit") == "metric-btn") {
           hourlyTemp = (data.hourly[h].temp - 32) / 1.8;
         }
+
         let hourlyTempDiv = document.createElement("div");
         hourlyTempDiv.setAttribute("class", "hourly-divs");
-        let hourObj = new Date(data.hourly[h].dt * 1e3);
+
+        let hourObj = new Date(data.hourly[h].dt * 1000);
+
+        // Get hours from the timestamp
         let hours = hourObj.getUTCHours();
         let formattedTime = hours.toString().padStart(2, "0") + ":00";
+
         if (h === 0) {
           formattedTime = "Now";
         }
+
         let weatherIconHourly = data.hourly[h].weather[0].icon;
         let hourlyPopValue = Math.round(data.hourly[h].pop * 100);
         let hourlyPop;
+
         if (hourlyPopValue > 0) {
           hourlyPop = Math.round(data.hourly[h].pop * 100) + "%";
         } else if (hourlyPopValue == 0) {
           hourlyPop = "";
         }
+
         hourlyTempDiv.innerHTML = `
         <div class="single-hour-time">${formattedTime}</div>
         <div class="single-hour-icon"><i class="wi ${
@@ -332,8 +394,10 @@ function fetchCityData() {
           hourlyTemp
         )}</div><span class="single-hour-circle-icon">&#3664;</span></div>
         <div class="single-hour-pop">${hourlyPop}</div>`;
+
         hourlyTempSection.appendChild(hourlyTempDiv);
       }
+
       dailyTempSection.innerHTML = "";
       for (let d = 0; d < 8; d++) {
         const days = [
@@ -345,31 +409,43 @@ function fetchCityData() {
           "Friday",
           "Saturday",
         ];
-        let dayName = new Date(data.daily[d].dt * 1e3).getDay();
+        let dayName = new Date(data.daily[d].dt * 1000).getDay();
         let singleDayName = days[dayName];
+
         if (d == 0) {
           singleDayName = "Today";
         }
+
         let dataDailyTempMax = data.daily[d].temp.max;
         let dataDailyTempMin = data.daily[d].temp.min;
+
         if (localStorage.getItem("temp-unit") == "metric-btn") {
           dataDailyTempMax = (data.daily[d].temp.max - 32) / 1.8;
           dataDailyTempMin = (data.daily[d].temp.min - 32) / 1.8;
         }
+
         let dailyWeatherDescription = data.daily[d].weather[0].description;
         let dailyWeatherDescriptionSplit = dailyWeatherDescription.split(" ");
+        let dailyWeatherDescriptionFinalArray = [];
+
         for (let t = 0; t < dailyWeatherDescriptionSplit.length; t++) {
-          dailyWeatherDescriptionSplit[t].charAt(0).toUpperCase() +
+          let dailyWeatherDescriptionFinal =
+            dailyWeatherDescriptionSplit[t].charAt(0).toUpperCase() +
             dailyWeatherDescriptionSplit[t].slice(1);
+          dailyWeatherDescriptionFinalArray.push(dailyWeatherDescriptionFinal);
         }
+
         let dailyPopValue = Math.round(data.daily[d].pop * 100);
+
         let dailyPop;
+
         if (dailyPopValue > 0) {
           dailyPop = Math.round(data.daily[d].pop * 100) + "%";
         } else if (dailyPopValue == 0) {
           dailyPop = "";
         }
         let weatherIconDaily = data.daily[d].weather[0].icon;
+
         dailyTempSection.innerHTML += `
           
             <tr>
@@ -393,8 +469,10 @@ function fetchCityData() {
       console.log("Error: " + err);
     });
 }
+
 function determineTempUnit() {
-  selectedLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLat}&lon=${currentLong}&units=imperial&exclude=minutely&appid=${apiKey}`;
+  selectedLocation = `https://api.openweathermap.org/data/3.0/onecall?lat=${currentLat}&lon=${currentLong}&units=imperial&exclude=minutely&appid=${apiKey}`;
+
   if (localStorage.getItem("temp-unit") == "metric-btn") {
     selectedTempUnit = `C`;
   } else if (localStorage.getItem("temp-unit") == "imperial-btn") {
@@ -402,45 +480,59 @@ function determineTempUnit() {
     selectedWindSpeedUnit = `mph`;
   }
 }
+
 let lastLocationArray;
 if (localStorage.getItem("savedLocations") !== null) {
   locallyStoredCities = JSON.parse(localStorage.getItem("savedLocations"));
+
   lastLocationArray = [];
+
   for (let c = 0; c < locallyStoredCities.length; c++) {
     let sideMenuCityLi = document.createElement("div");
     sideMenuCityLi.setAttribute("class", "side-menu-location-li");
     sideMenuCityLi.setAttribute("id", c);
+
     sideMenuCityLi.innerHTML = locallyStoredCities[c].city;
     locationsUl.appendChild(sideMenuCityLi);
+
     setTimeout(function () {
       if (sideMenuCityLi.innerHTML == cityDiv.innerHTML) {
         sideMenuCityLi.style.background = "rgba(0, 0, 0, 0.5)";
       }
     }, 500);
+
     let clicked;
     document.getElementById(c).addEventListener("click", (e) => {
       clicked = e.target.id;
+
       for (let w = 0; w < locallyStoredCities.length; w++) {
         document.getElementById(w).style.backgroundColor = "";
       }
+
       localStorage.setItem("cityLiColor", "rgba(0, 0, 0, 0.5)");
+
       currentLong = locallyStoredCities[clicked].longitude;
       currentLat = locallyStoredCities[clicked].latitude;
       selectedCity = locallyStoredCities[clicked].city;
+
       for (let l = 0; l < lastLocationArray.length; l++) {
         lastLocationArray.splice(l);
       }
+
       lastLocationArray.push({
-        currentLong,
-        currentLat,
-        selectedCity,
+        currentLong: currentLong,
+        currentLat: currentLat,
+        selectedCity: selectedCity,
         lastClicked: clicked,
       });
+
       document.getElementById(clicked).style.background = "rgba(0, 0, 0, 0.5)";
+
       localStorage.setItem(
         "lastLocationArray",
         JSON.stringify(lastLocationArray)
       );
+
       determineTempUnit();
       fetchCityData();
     });
@@ -448,6 +540,7 @@ if (localStorage.getItem("savedLocations") !== null) {
 } else if (
   localStorage.getItem("savedLocations") == null ||
   localStorage.getItem("speed-unit") == null
+  //||  localStorage.getItem("speed-unit") == null
 ) {
   bodyBackgroundColor =
     "linear-gradient(135deg, rgb(163, 163, 163) 10%, rgb(93, 104, 136) 100%)";
@@ -459,14 +552,18 @@ if (localStorage.getItem("lastLocationArray") !== null) {
   currentLong = lastLocationArray[0].currentLong;
   currentLat = lastLocationArray[0].currentLat;
   selectedCity = lastLocationArray[0].selectedCity;
-  lastLocationArray[0].lastClicked;
-  if (lastLocationArray.lastClicked !== null);
-  else if (lastLocationArray.lastClicked == null) {
+  lastClicked = lastLocationArray[0].lastClicked;
+
+  if (lastLocationArray.lastClicked !== null) {
+  } else if (lastLocationArray.lastClicked == null) {
     document.getElementById(0).style.background = "rgba(0, 0, 0, 0.5)";
   }
+
   determineTempUnit();
   fetchCityData();
 }
+
+// SLIDES SIDE MENU IN AND OUT
 menuIcon.addEventListener("click", () => {
   if (sideMenu.className == "side-menu-hidden") {
     sideMenu.classList = "side-menu-visible";

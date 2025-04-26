@@ -162190,7 +162190,7 @@ if (localStorage.getItem("apiKey", apiKey) !== null) {
   apiKey = localStorage.getItem("apiKey", apiKey);
   apiInputValue.value = apiKey;
 } else if (localStorage.getItem("apiKey", apiKey) == null) {
-  apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
+  apiKey = `194a2845f5343b68fefd716355f07aca`;
   apiInputValue.value = apiKey;
   localStorage.setItem("apiKey", apiKey);
 }
