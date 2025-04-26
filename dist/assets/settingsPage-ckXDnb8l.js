@@ -162204,7 +162204,8 @@ apiInputValue.addEventListener("input", () => {
   apiKey = apiInputValue.value;
   localStorage.setItem("apiKey", apiKey);
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?id=5128581&appid=${apiKey}`
+    `https://api.openweathermap.org/data/3.0/onecall?lat=40.7143&lon=-74.006&appid=${apiKey}
+`
   ).then((response) => {
     return response.json();
   }).then((data) => {
