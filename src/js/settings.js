@@ -1,4 +1,4 @@
-import citiesData from "../js/cities_data";
+import citiesData from "../js/cities_data.js";
 
 const cityListWrap = document.getElementById("city-list-wrap");
 const currentLocationButton = document.querySelector(".current-location-btn");
@@ -47,7 +47,7 @@ if (localStorage.getItem("apiKey", apiKey) !== null) {
   apiKey = localStorage.getItem("apiKey", apiKey);
   apiInputValue.value = apiKey;
 } else if (localStorage.getItem("apiKey", apiKey) == null) {
-  apiKey = `6b2ce66a0708555cf5ca3fe99d0f1274`;
+  apiKey = `194a2845f5343b68fefd716355f07aca`;
   apiInputValue.value = apiKey;
   localStorage.setItem("apiKey", apiKey);
 }
@@ -320,7 +320,7 @@ currentLocationButton.addEventListener("click", () => {
         checkForLocalData();
       });
 
-    userLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    userLocation = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely&appid=${apiKey}`;
 
     currentLocationButton.disabled = false;
   }

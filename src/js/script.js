@@ -469,7 +469,7 @@ function fetchCityData() {
 }
 
 function determineTempUnit() {
-  selectedLocation = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLat}&lon=${currentLong}&units=imperial&appid=${apiKey}`;
+  selectedLocation = `https://api.openweathermap.org/data/3.0/onecall?lat=${currentLat}&lon=${currentLong}&units=imperial&exclude=minutely&appid=${apiKey}`;
 
   if (localStorage.getItem("temp-unit") == "metric-btn") {
     selectedTempUnit = `C`;
